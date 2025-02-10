@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="start-container">
+        <button class="start-button" onclick="location.href='quiz.html'">Start</button>
+    </div>
+    <audio id="background-music" loop>
+        <source src="path/audiofiles/Braveheart.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var audio = document.getElementById('background-music');
+            audio.volume = 0.3; // ปรับระดับเสียงเป็น 30%
+            audio.play().catch(function(error) {
+                console.log("Autoplay failed: ", error);
+            });
+        });
+    </script>
+</body>
+</html>

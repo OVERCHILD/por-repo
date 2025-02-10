@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="score-container">
+            <p>Score: <span id="score">0</span></p>
+        </div>
+        <div id="question-container" class="question-container"></div>
+        <button id="confirm-button" class="btn" onclick="checkAnswer()">Confirm Answer</button>
+        <button id="next-button" class="btn" onclick="loadNextQuestion()" style="display: none;">Next Question</button>
+        <p id="result-message" class="result-message"></p>
+    </div>
+
+    <script src="questions.js"></script>
+    <script>
+        let currentQuestionIndex = 0;
+        let usedQuestions = [];
+        let score = 0;
+
+        function loadQuestion(questionIndex) {
+            const questionContainer = document.getElementById('question-container');
+            const question = questions[questionIndex];
+
+            let html = `<p class="question-text">${question.question} 
+                <button class="speaker-button" onclick="speakQuestion('${question.question}')">
+                    🔊
+                </button>
+            </p>`;
+            question.options.forEach((option, index) => {
+                html += `
+                    <input type="radio" id="option${index}" name="options" value="${option}">
+                    <label for="option${index}" class="option-label" onclick="speakOption('${option}')">${option}</label><br>
+                `;
+            });
+            questionContainer.innerHTML = html;
+
+            const optionLabels = document.querySelectorAll('.option-label');
+            optionLabels.forEach(label => {
+                label.addEventListener('click', () => {
+                    optionLabels.forEach(l => l.classList.remove('selected'));
+                    label.classList.add('selected');
+                });
+            });
+        }
+
+        function speakQuestion(questionText) {
+            const url = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(questionText)}&tl=en&client=tw-ob`;
+            const audio = new Audio(url);
+            audio.play();
+        }
+
+        function speakOption(optionText) {
+            const url = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(optionText)}&tl=en&client=tw-ob`;
+            const audio = new Audio(url);
+            audio.play();
+        }
+
+        function checkAnswer() {
+            const selectedOption = document.querySelector('input[name="options"]:checked');
+            const resultMessage = document.getElementById('result-message');
+            const confirmButton = document.getElementById('confirm-button');
+            const nextButton = document.getElementById('next-button');
+            const scoreDisplay = document.getElementById('score');
+            
+            if (selectedOption) {
+                const answer = selectedOption.value;
+                if (answer === questions[currentQuestionIndex].correctAnswer) {
+                    resultMessage.textContent = "Correct!";
+                    resultMessage.style.color = "green";
+                    score++;
+                    scoreDisplay.textContent = score;
+                } else {
+                    resultMessage.textContent = "Wrong!";
+                    resultMessage.style.color = "red";
+                }
+                confirmButton.style.display = "none";
+                nextButton.style.display = "block";
+            } else {
+                resultMessage.textContent = "Please select an answer.";
+                resultMessage.style.color = "orange";
+            }
+        }
+
+        function loadNextQuestion() {
+            const resultMessage = document.getElementById('result-message');
+            const confirmButton = document.getElementById('confirm-button');
+            const nextButton = document.getElementById('next-button');
+            const questionContainer = document.getElementById('question-container');
+
+            resultMessage.textContent = "";
+            confirmButton.style.display = "block";
+            nextButton.style.display = "none";
+            if (usedQuestions.length < questions.length) {
+                currentQuestionIndex = getRandomQuestionIndex();
+                loadQuestion(currentQuestionIndex);
+            } else {
+                resultMessage.textContent = "You've completed all questions!";
+                resultMessage.style.color = "blue";
+                confirmButton.style.display = "none";
+                nextButton.style.display = "none";
+            }
+        }
+
+        function getRandomQuestionIndex() {
+            let randomIndex;
+            do {
+                randomIndex = Math.floor(Math.random() * questions.length);
+            } while (usedQuestions.includes(randomIndex));
+            usedQuestions.push(randomIndex);
+            return randomIndex;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadQuestion(currentQuestionIndex);
+        });
+    </script>
+</body>
+</html>
