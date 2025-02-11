@@ -1,0 +1,241 @@
+body {
+    background-color: #2f2f2f; /* สีเทาดำ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.start-container {
+    text-align: center;
+    color: white;
+}
+
+.start-button {
+    font-size: 2rem;
+    color: white;
+    background-color: #4CAF50; /* สีเขียว */
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px; /* ขอบปุ่มโค้งมน */
+    transition-duration: 0.4s;
+}
+
+.start-button:hover {
+    background-color: white;
+    color: black;
+}
+
+.quiz-container {
+    text-align: center;
+    color: white;
+    background-color: #3a3a3a;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%; /* ปรับให้เหมาะสมกับหน้าจอมือถือ */
+    max-width: 600px;
+    position: relative;
+}
+
+.score-container {
+    margin-bottom: 20px;
+    font-size: 2rem; /* ปรับขนาดให้ใหญ่ขึ้น */
+    font-style: italic; /* ปรับเป็นตัวเอียง */
+}
+
+.score-blink {
+    animation: score-blink-animation 0.2s steps(5, start) 10;
+}
+
+@keyframes score-blink-animation {
+    0% {
+        color: red;
+    }
+    50% {
+        color: yellow;
+    }
+    100% {
+        color: red;
+    }
+}
+
+@-webkit-keyframes score-blink-animation {
+    0% {
+        color: red;
+    }
+    50% {
+        color: yellow;
+    }
+    100% {
+        color: red;
+    }
+}
+
+.question-container {
+    margin: 20px 0;
+}
+
+.question-text {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.speaker-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.option-label {
+    display: block;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.option-label:hover,
+.option-label.selected {
+    background-color: #45a049;
+    font-weight: bold;
+    color: black;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]:checked + .option-label {
+    background-color: #45a049;
+    font-weight: bold;
+    color: black;
+}
+
+.btn {
+    font-size: 1rem;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 5px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+}
+
+.btn:hover {
+    background-color: white;
+    color: black;
+}
+
+.bold-blink {
+    font-weight: bold;
+    animation: blink-animation 2s infinite; /* กระพริบสลับสีช้าๆ */
+    -webkit-animation: blink-animation 2s infinite;
+}
+
+@keyframes blink-animation {
+    0% {
+        color: white;
+        background-color: black;
+    }
+    50% {
+        color: black;
+        background-color: white;
+    }
+    100% {
+        color: white;
+        background-color: black;
+    }
+}
+
+@-webkit-keyframes blink-animation {
+    0% {
+        color: white;
+        background-color: black;
+    }
+    50% {
+        color: black;
+        background-color: white;
+    }
+    100% {
+        color: white;
+        background-color: black;
+    }
+}
+
+.button-container {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+}
+
+.result-message {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    color: orange;
+}
+
+.warning-message {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: red;
+}
+
+.blink {
+    animation: blink-animation 0.2s steps(2, start) infinite;
+    -webkit-animation: blink-animation 0.2s steps(2, start) infinite;
+}
+
+@keyframes blink-animation {
+    50% {
+        visibility: hidden;
+    }
+}
+
+@-webkit-keyframes blink-animation {
+    50% {
+        visibility: hidden;
+    }
+}
+
+/* Media queries สำหรับโทรศัพท์มือถือ */
+@media only screen and (max-width: 600px) {
+    .quiz-container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .question-text {
+        font-size: 1.2rem;
+    }
+
+    .option-label {
+        padding: 8px;
+        font-size: 1rem;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+
+    .result-message {
+        font-size: 1rem;
+    }
+}
