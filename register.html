@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form-group label {
+            color: black; /* ทำให้ตัวหนังสือสีดำ */
+            margin-right: 10px; /* เพิ่มระยะห่างด้านขวาของ label */
+        }
+
+        .form-group input {
+            max-width: 220px; /* ปรับความยาวของแถบกรอกข้อมูล */
+        }
+
+        /* ขยับ margin-left สำหรับแต่ละฟิลด์ */
+        .form-group.username {
+            margin-left: 20px; /* คุณสามารถปรับค่าตรงนี้ได้ */
+        }
+
+        .form-group.password {
+            margin-left: 26px; /* คุณสามารถปรับค่าตรงนี้ได้ */
+        }
+
+        .form-group.confirm-password {
+            margin-left: -33px; /* คุณสามารถปรับค่าตรงนี้ได้ */
+        }
+
+        .password-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .password-container input {
+            flex: 1;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        .start-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh; /* ให้หน้าเว็บเต็มความสูงของหน้าจอ */
+        }
+
+        .start-container form {
+            width: 100%; /* ให้ฟอร์มกว้างเต็มหน้าจอ */
+            max-width: 400px; /* กำหนดความกว้างสูงสุด */
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            background-color: white;
+            text-align: center;
+        }
+
+        .start-container a {
+            color: orange; /* ทำให้ลิงก์ Register สีส้ม */
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="start-container">
+            <h2>Register</h2>
+            <form id="register-form">
+                <div class="form-group username">
+                    <label for="username-register">Username:</label>
+                    <input type="text" id="username-register" name="username" required maxlength="16">
+                </div>
+                <div class="form-group password">
+                    <label for="password-register">Password:</label>
+                    <div class="password-container">
+                        <input type="password" id="password-register" name="password" required maxlength="16">
+                        <span class="toggle-password" onclick="togglePassword('password-register')">👁️‍🗨️</span>
+                    </div>
+                </div>
+                <div class="form-group confirm-password">
+                    <label for="confirm-password-register">Confirm Password:</label>
+                    <div class="password-container">
+                        <input type="password" id="confirm-password-register" name="confirm-password" required maxlength="16">
+                        <span class="toggle-password" onclick="togglePassword('confirm-password-register')">👁️‍🗨️</span>
+                    </div>
+                </div>
+                <button type="button" onclick="register()">Register</button>
+            </form>
+            <p id="message"></p>
+            <p>Already registered? <a href="index.html">Login</a></p> <!-- ลิงก์กลับสู่หน้าเข้าสู่ระบบ -->
+        </div>
+    </div>
+    <script>
+        let registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
+
+        function isValidUsername(username) {
+            return username.length > 4 && username.length <= 10;
+        }
+
+        function isValidPassword(password) {
+            return password.length >= 8 && password.length <= 16;
+        }
+
+        function togglePassword(fieldId) {
+            const passwordField = document.getElementById(fieldId);
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+
+        function register() {
+            const username = document.getElementById('username-register').value;
+            const password = document.getElementById('password-register').value;
+            const confirmPassword = document.getElementById('confirm-password-register').value;
+            const message = document.getElementById('message');
+            
+            if (!isValidUsername(username)) {
+                message.textContent = "Username must be between 5 and 10 characters.";
+                message.style.color = "red";
+                return;
+            }
+            
+            if (!isValidPassword(password)) {
+                message.textContent = "Password must be between 8 and 16 characters.";
+                message.style.color = "red";
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                message.textContent = "Passwords do not match.";
+                message.style.color = "red";
+                return;
+            }
+            
+            let user = registeredUsers.find(user => user.username === username);
+            if (user) {
+                message.textContent = "Username already taken. Please choose another one.";
+                message.style.color = "red";
+            } else {
+                registeredUsers.push({username, password});
+                localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
+                message.textContent = "Registration successful! You can now login.";
+                message.style.color = "green";
+            }
+        }
+    </script>
+</body>
+</html>
