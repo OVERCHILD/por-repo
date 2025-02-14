@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-width=1.0">
+    <title>Quiz Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .user-info {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            text-align: left;
+            color: white;
+        }
+
+        .user-info span {
+            display: block;
+        }
+
+        .user-info .status-blink {
+            animation: status-blink-animation 2s infinite;
+        }
+
+        @keyframes status-blink-animation {
+            0% {
+                color: green;
+            }
+            50% {
+                color: white;
+            }
+            100% {
+                color: green;
+            }
+        }
+
+        .user-info .offline {
+            color: red;
+        }
+
+        .logout-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            margin-top: 5px;
+            padding: 4px 8px; /* ลดขนาดปุ่มลง 15% */
+            background-color: #FF5733; /* สีส้ม */
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .logout-button:hover {
+            background-color: #C70039; /* สีแดงเข้ม */
+        }
+
+        .result-message {
+            position: absolute;
+            bottom: 10px; /* ขยับข้อความให้อยู่ล่างสุด */
+            right: 10px; /* ขยับข้อความให้อยู่ขวาสุด */
+        }
+
+        .score-container {
+            margin-top: 50px; /* ขยับแถบคะแนนลงมา */
+            color: gold; /* เปลี่ยนสีเป็นสีเหลืองทอง */
+        }
+
+        .question-container {
+            margin-top: 40px; /* ขยับชุดคำถามลงมา */
+        }
+
+        .question-text {
+            margin-bottom: 40px; /* เพิ่มช่องไฟระหว่างคำถามและคำตอบ */
+            font-size: 1.3em; /* เพิ่มขนาดตัวหนังสือในส่วนของคำถาม */
+            font-weight: bold; /* ทำให้เป็นตัวหนังสือแบบหนา */
+            text-shadow: 1px 1px 2px black; /* ใส่ขอบนอกตัวหนังสือเป็นสีดำเข้ม */
+        }
+
+        .option-label {
+            display: block;
+            margin-bottom: 4px; /* ลดช่องไฟความห่างของตัวเลือกคำตอบ */
+        }
+
+        .button-container {
+            margin-top: 30px; /* เพิ่มช่องว่างระหว่างปุ่มกับคำตอบ */
+        }
+
+        .btn {
+            background-color: #FF5733;
+            color: white;
+            border: 2px solid #FF5733; /* ใส่ขอบให้ปุ่ม */
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* ใส่เงาเพื่อให้มีมิติ */
+        }
+
+        .btn:hover {
+            background-color: #C70039;
+            border-color: #C70039; /* เปลี่ยนสีขอบเมื่อ hover */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .timer {
+            position: absolute;
+            top: 25px; /* เลื่อนแถบนับเวลาถอยหลังลงมา */
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1.5em;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .timer-blink-red {
+            animation: timer-blink-red-animation 0.5s steps(2, start) 2; /* กระพริบเป็นเวลา 1 วินาที */
+        }
+
+        @keyframes timer-blink-red-animation {
+            0%, 100% {
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+            50% {
+                background-color: red;
+            }
+        }
+
+        .timer-blink-green {
+            animation: timer-blink-green-animation 0.5s steps(2, start) 2; /* กระพริบเป็นเวลา 1 วินาที */
+        }
+
+        @keyframes timer-blink-green-animation {
+            0%, 100% {
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+            50% {
+                background-color: green;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="timer" id="timer">90</div> <!-- เวลานับถอยหลัง -->
+    <div class="quiz-container" style="height: 80vh;"> <!-- เพิ่มความสูงของหน้าต่าง -->
+        <div class="user-info">
+            <span id="username-display"></span>
+            <span id="user-status" class="status-blink">Online</span>
+        </div>
+        <button class="logout-button" onclick="logout()">Logout</button>
+        <div class="score-container">
+            <p id="score-text">Score: <span id="score">0</span> (Highest: <span id="highest-score">0</span>)</p>
+        </div>
+        <div id="question-container" class="question-container"></div>
+        <div class="button-container" style="margin-top: 20px;"> <!-- เพิ่มช่องว่างระหว่างปุ่มกับคำตอบ -->
+            <button id="confirm-button" class="btn bold-blink" onclick="playClick2Sound(); checkAnswer()">Confirm Answer</button>
+            <button id="next-button" class="btn bold-blink" onclick="loadNextQuestionWithDelay()" style="display: none;">Next Question</button>
+        </div>
+        <p id="result-message" class="result-message">Please select an answer.</p>
+        <p id="warning-message" class="warning-message" style="display: none;">Your browser doesn't support text-to-speech. Please use a different browser.</p>
+    </div>
+
+    <audio id="correct-sound" src="path/audiofiles/correct.mp3"></audio>
+    <audio id="wrong-sound" src="path/audiofiles/wrong.mp3"></audio>
+    <audio id="next-sound" src="path/audiofiles/next.mp3"></audio>
+    <audio id="click-sound" src="path/audiofiles/click.mp3"></audio> <!-- เพิ่มเสียงคลิก -->
+    <audio id="click2-sound" src="path/audiofiles/click2.mp3"></audio> <!-- เพิ่มเสียงคลิกสำหรับปุ่ม Confirm Answer -->
+
+    <script src="questions.js"></script>
+    <script>
+        // Check if the user is logged in
+        const currentUser = localStorage.getItem('currentUser');
+        if (!currentUser) {
+            alert('Please log in first.');
+            location.href = 'index.html';
+        } else {
+            document.getElementById('username-display').textContent = currentUser;
+        }
+
+        // Retrieve and display the highest score
+        const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
+        const currentUserData = registeredUsers.find(user => user.username === currentUser);
+        let highestScore = currentUserData ? currentUserData.highestScore || 0 : 0;
+        document.getElementById('highest-score').textContent = highestScore;
+
+        function logout() {
+            localStorage.removeItem('currentUser');
+            location.href = 'index.html';
+        }
+
+        function updateOnlineStatus() {
+            const statusElement = document.getElementById('user-status');
+            if (navigator.onLine) {
+                statusElement.textContent = 'Online';
+                statusElement.classList.remove('offline');
+                statusElement.classList.add('status-blink');
+            } else {
+                statusElement.textContent = 'Offline';
+                statusElement.classList.remove('status-blink');
+                statusElement.classList.add('offline');
+            }
+        }
+
+        window.addEventListener('online', updateOnlineStatus);
+        window.addEventListener('offline', updateOnlineStatus);
+
+        updateOnlineStatus(); // Update status on page load
+
+        let questionsList = [...questions]; // ทำสำเนาของคำถามทั้งหมด
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function loadQuestion(questionIndex) {
+            const questionContainer = document.getElementById('question-container');
+            const question = questionsList[questionIndex];
+
+            let html = `<p class="question-text" onclick="speakQuestion('${question.question}')">${question.question}</p>`;
+
+            const shuffledOptions = shuffleArray([...question.options]);
+
+            shuffledOptions.forEach((option, index) => {
+                html += `
+                    <input type="radio" id="option${index}" name="options" value="${option}">
+                    <label for="option${index}" class="option-label" onclick="speakOption('${option}'); playClickSound()">${option}</label><br>
+                `;
+            });
+
+            questionContainer.innerHTML = html;
+
+            // อ่านคำถามเมื่อแสดงผล
+            speakQuestion(question.question);
+
+            const optionLabels = document.querySelectorAll('.option-label');
+            optionLabels.forEach(label => {
+                label.addEventListener('click', () => {
+                    optionLabels.forEach(l => l.classList.remove('selected'));
+                    label.classList.add('selected');
+                });
+            });
+        }
+
+        function speakQuestion(text) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'en-US';
+                window.speechSynthesis.speak(utterance);
+            } else {
+                showWarningMessage();
+            }
+        }
+
+        function speakOption(option) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(option);
+                utterance.lang = 'en-US';
+                window.speechSynthesis.speak(utterance);
+            } else {
+                showWarningMessage();
+            }
+        }
+
+        function playClickSound() {
+            const clickSound = document.getElementById('click-sound');
+            clickSound.volume = 0.25; // ปรับเสียงคลิกเหลือ 25%
+            clickSound.play();
+        }
+
+        function playClick2Sound() {
+            const click2Sound = document.getElementById('click2-sound');
+            click2Sound.play();
+        }
+
+        function showWarningMessage() {
+            const warningMessage = document.getElementById('warning-message');
+            warningMessage.style.display = 'block';
+        }
+
+        let timer; // ตัวแปรสำหรับเก็บเวลาคงเหลือ
+
+        function checkAnswer() {
+            const selectedOption = document.querySelector('input[name="options"]:checked');
+            const resultMessage = document.getElementById('result-message');
+            const confirmButton = document.getElementById('confirm-button');
+            const nextButton = document.getElementById('next-button');
+            const scoreDisplay = document.getElementById('score');
+            const scoreText = document.getElementById('score-text');
+            const correctSound = document.getElementById('correct-sound');
+            const wrongSound = document.getElementById('wrong-sound');
+            const timerElement = document.getElementById('timer'); // ตัวจับเวลา
+
+            if (selectedOption) {
+                const answer = selectedOption.value;
+                const selectedLabel = selectedOption.nextElementSibling; // แท็ก <label> ที่ถูกเลือก
+                if (answer === questionsList[currentQuestionIndex].correctAnswer) {
+                    resultMessage.textContent = "Correct!";
+                    resultMessage.style.color = "green";
+                    score++;
+                    scoreDisplay.textContent = score;
+                    scoreText.classList.add('score-blink'); // เพิ่มคลาสกระพริบให้กับ Score: และคะแนน
+                    setTimeout(() => {
+                        scoreText.classList.remove('score-blink'); // ลบคลาสกระพริบ
+                    }, 2000); // กระพริบ 2 วินาที
+                    correctSound.play();
+                    timerElement.classList.add('timer-blink-green'); // กระพริบเป็นสีเขียวเมื่อเวลาหมด
+                    setTimeout(() => {
+                        timerElement.classList.remove('timer-blink-green');
+                    }, 1000); // กระพริบ 1 วินาที
+                    selectedLabel.style.backgroundColor = "#a0d2eb"; // สีฟ้าอ่อน
+                    selectedLabel.style.color = "black"; // สีตัวหนังสือ
+                    timer += 3; // เพิ่มเวลา 3 วินาทีเมื่อตอบถูก
+                    // อัปเดตคะแนนสูงสุด
+                    if (score > highestScore) {
+                        highestScore = score;
+                        document.getElementById('highest-score').textContent = highestScore;
+                        currentUserData.highestScore = highestScore;
+                        localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
+                    }
+                } else {
+                    resultMessage.textContent = "Wrong!";
+                    resultMessage.style.color = "red";
+                    wrongSound.play();
+                    timerElement.classList.add('timer-blink-red'); // กระพริบเป็นสีแดงเมื่อเวลาหมด
+                    setTimeout(() => {
+                        timerElement.classList.remove('timer-blink-red');
+                    }, 1000); // กระพริบ 1 วินาที
+                    selectedLabel.style.backgroundColor = "#ffcc80"; // สีส้ม
+                    selectedLabel.style.color = "black"; // สีตัวหนังสือ
+                    timer -= 7; // ลดเวลา 7 วินาทีเมื่อตอบผิด
+                }
+                confirmButton.style.display = "none";
+                nextButton.style.display = "block";
+                nextButton.classList.add('bold-blink'); // เพิ่มคลาสกระพริบให้กับปุ่ม Next Question
+                // ลบการตั้งเวลาให้ปุ่ม Next Question กดอัตโนมัติ
+            } else {
+                resultMessage.textContent = "Please select an answer.";
+                resultMessage.style.color = "orange";
+                // กระพริบข้อความและเล่นเสียง
+                resultMessage.classList.add('blink');
+                speakWarningMessage(resultMessage.textContent);
+                setTimeout(() => {
+                    resultMessage.classList.remove('blink');
+                }, 2000); // กระพริบ 2 วินาที
+            }
+        }
+
+        function speakWarningMessage(text) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'en-US';
+                window.speechSynthesis.speak(utterance);
+            } else {
+                showWarningMessage();
+            }
+        }
+
+        function loadNextQuestion() {
+            const resultMessage = document.getElementById('result-message');
+            const confirmButton = document.getElementById('confirm-button');
+            const nextButton = document.getElementById('next-button');
+            const questionContainer = document.getElementById('question-container');
+
+            resultMessage.textContent = "Please select an answer.";
+            resultMessage.style.color = "orange";
+            confirmButton.style.display = "block";
+            nextButton.style.display = "none";
+            nextButton.classList.remove('bold-blink'); // ลบคลาสกระพริบเมื่อเปลี่ยนคำถาม
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questionsList.length) {
+                loadQuestion(currentQuestionIndex);
+            } else {
+                resultMessage.textContent = "You've completed all questions!";
+                resultMessage.style.color = "blue";
+                confirmButton.style.display = "none";
+                nextButton.style.display = "none";
+            }
+        }
+
+        function loadNextQuestionWithDelay() {
+            const nextSound = document.getElementById('next-sound');
+            nextSound.volume = 0.3; // ลดเสียงเหลือ 30%
+            nextSound.play();
+            setTimeout(loadNextQuestion, 1000); // ดีเลย์ 1.0 วินาทีก่อนโหลดคำถามถัดไป
+        }
+
+        function startTimer(duration, display) {
+            timer = duration;
+            const timerInterval = setInterval(function () {
+                if (timer <= 0) {
+                    timer = 0;
+                    clearInterval(timerInterval);
+                    display.textContent = "0";
+                    display.classList.add('timer-blink-grey'); // เพิ่มคลาสกระพริบเมื่อเวลาหมด
+                    setTimeout(() => {
+                        display.classList.remove('timer-blink-grey');
+                    }, 4000); // กระพริบ 4 วินาที
+                    // บันทึกคะแนนปัจจุบันและคะแนนสูงสุดใน localStorage
+                    localStorage.setItem('currentScore', score);
+                    localStorage.setItem('highestScore', highestScore);
+                    // หน้าจอเกมค้างอยู่ 2.5 วินาทีก่อนเปลี่ยนไปที่ summary.html
+                    setTimeout(() => {
+                        location.href = 'summary.html';
+                    }, 2500);
+                } else {
+                    display.textContent = timer;
+                }
+
+                if (--timer < 0) {
+                    timer = 0;
+                }
+            }, 1000);
+        }
+
+
+        
+
+
+        window.onload = function () {
+            let duration = 90; // 90 วินาที
+            let display = document.querySelector('#timer');
+            startTimer(duration, display);
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            questionsList = shuffleArray(questionsList); // สุ่มชุดคำถามเมื่อโหลดหน้าเว็บ
+            loadQuestion(currentQuestionIndex); // โหลดคำถามแรกพร้อมเสียงอ่านอัตโนมัติ
+        });
+    </script>
+</body>
+</html>

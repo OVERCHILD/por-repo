@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .summary-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 80vh; /* ความสูงเหมือนกับ quiz.html */
+            width: 80vw; /* เปลี่ยนความกว้างของหน้าจอเป็น 80% */
+            text-align: center;
+            background-color: #282c34;
+            color: white;
+            padding: 20px; /* เพิ่มการเติมเต็ม */
+            border-radius: 10px; /* เพิ่มขอบมน */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+        }
+
+        .summary h1 {
+            font-size: 3em; /* ปรับขนาดตัวหนังสือ */
+            margin-bottom: 10px; /* ขยับขึ้นสูงอีกนิด */
+            color: red; /* สีแดง */
+        }
+
+        .summary h2 {
+            font-size: 2.5em; /* เพิ่มขนาดตัวหนังสือสำหรับ Your Score */
+            margin-bottom: 10px;
+        }
+
+        .summary .highest-score {
+            font-size: 1.2em; /* ลดขนาดตัวหนังสือสำหรับ Highest Score */
+            font-weight: lighter; /* ทำให้เป็นตัวหนังสือบาง */
+            margin-bottom: 20px;
+        }
+
+        .summary p {
+            font-size: 1.3em;
+            margin-bottom: 30px; /* ลดช่องว่างด้านล่าง */
+        }
+
+        .btn {
+            background-color: #28a745; /* เปลี่ยนสีปุ่ม Play Again เป็นโทนสีเขียว */
+            color: white;
+            border: 2px solid #28a745;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+            font-size: 1.3em; /* ปรับขนาดตัวหนังสือ */
+        }
+
+        .btn:hover {
+            background-color: #218838;
+            border-color: #218838;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .blink {
+            animation: blink-animation 0.5s steps(2, start) 5; /* กระพริบเป็นเวลา 2.5 วินาที */
+        }
+
+        @keyframes blink-animation {
+            to {
+                visibility: hidden;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="summary-container">
+        <div class="summary">
+            <h1>Time's Up</h1> <!-- เปลี่ยนคำว่า Game Over -->
+            <h2 id="score-container" onclick="handleScoreClick()">Your Score: <span id="score"></span></h2> <!-- เพิ่มการคลิกที่แถบ Your Score -->
+            <h2 class="highest-score">(Highest Score: <span id="highest-score"></span>)</h2> <!-- ใส่วงเล็บและขยับสูงขึ้นไปใกล้กับ Your Score -->
+            <p id="encouragement-message"></p>
+            <button class="btn" onclick="playButtonSound(); delayRedirect()">Play Again</button>
+        </div>
+    </div>
+
+    <audio id="button-sound" src="path/audiofiles/X_button.mp3"></audio> <!-- เพิ่มเสียงปุ่ม Play Again -->
+
+    <script>
+        function getEncouragementMessage(score) {
+            const messages = {
+                0: ["Don't give up! Try again!", "Keep going! You'll get it!", "Almost there! Try again!"],
+                1: ["Keep trying! You can do better!", "Good effort! Keep practicing!", "Nice attempt! Let's do it again!"],
+                2: ["Nice start! Keep going!", "Good work! You're getting there!", "Great effort! Keep it up!"],
+                3: ["Good effort! Practice makes perfect!", "You're doing well! Keep practicing!", "Great job! Keep it going!"],
+                4: ["Great job! Keep up the good work!", "Fantastic effort! Keep it up!", "You're on the right track!"],
+                5: ["You're doing well! Keep it up!", "Great progress! Keep going!", "You're doing great! Keep it up!"],
+                6: ["Fantastic! You're on the right track!", "Awesome job! Keep moving forward!", "Excellent work! Keep it going!"],
+                7: ["Awesome! You're improving!", "Great job! You're getting better!", "You're doing amazing! Keep it up!"],
+                8: ["Excellent! Keep pushing forward!", "Fantastic effort! Keep going!", "You're doing excellent! Keep it up!"],
+                9: ["Amazing! You're doing great!", "Wonderful job! Keep it up!", "Fantastic work! Keep going!"],
+                10: ["Incredible! You're a natural!", "Amazing job! Keep it up!", "You're doing fantastic! Keep going!"],
+                11: ["Superb! You're really getting the hang of this!", "Fantastic effort! Keep it up!", "You're doing great! Keep it going!"],
+                12: ["Brilliant! Keep it going!", "Great work! Keep pushing forward!", "You're doing fantastic! Keep going!"],
+                13: ["Marvelous! You're doing a fantastic job!", "Fantastic effort! Keep it up!", "You're doing amazing! Keep it going!"],
+                14: ["Outstanding! You're a star!", "Incredible work! Keep it up!", "You're doing outstanding! Keep going!"],
+                15: ["Phenomenal! You're excelling!", "Fantastic job! Keep it up!", "You're doing phenomenal! Keep going!"],
+                16: ["Remarkable! You're a quiz genius!", "Amazing work! Keep it up!", "You're doing remarkable! Keep going!"],
+                17: ["Unbelievable! You're a master!", "Fantastic job! Keep it up!", "You're doing unbelievable! Keep going!"],
+                18: ["Exceptional! You're at the top of your game!", "Amazing work! Keep it up!", "You're doing exceptional! Keep going!"],
+                19: ["Legendary! You're unstoppable!", "Incredible job! Keep it up!", "You're doing legendary! Keep going!"],
+                20: ["Perfect! You're a quiz champion!", "Amazing work! Keep it up!", "You're doing perfect! Keep going!"]
+            };
+            const messageArray = messages[score];
+            const randomIndex = Math.floor(Math.random() * messageArray.length);
+            const message = messageArray[randomIndex];
+            return {message, messageArray};
+        }
+
+        function speakMessage(message) {
+            const utterance = new SpeechSynthesisUtterance(message);
+            utterance.lang = 'en-US'; // ตั้งค่าเป็นภาษาอังกฤษ
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function handleScoreClick() {
+            const scoreContainer = document.getElementById('score-container');
+            const message = document.getElementById('encouragement-message').textContent; // อ่านข้อความที่แสดงอยู่
+
+            scoreContainer.classList.add('blink');
+            speakMessage(message); // อ่านข้อความที่แสดงอยู่
+
+            setTimeout(() => {
+                scoreContainer.classList.remove('blink');
+            }, 2500);
+        }
+
+        function playButtonSound() {
+            const buttonSound = document.getElementById('button-sound');
+            buttonSound.volume = 0.6; // ปรับเสียงเหลือ 60%
+            buttonSound.play();
+        }
+
+        function delayRedirect() {
+            setTimeout(() => {
+                location.href = 'quiz.html';
+            }, 1500); // หน่วงเวลา 1.5 วินาทีก่อนเปลี่ยนหน้า
+        }
+
+        function restartQuiz() {
+            playButtonSound();
+            delayRedirect();
+        }
+
+        window.onload = function () {
+            const score = localStorage.getItem('currentScore');
+            const highestScore = localStorage.getItem('highestScore');
+
+            document.getElementById('score').textContent = score;
+            document.getElementById('highest-score').textContent = highestScore;
+
+            const {message} = getEncouragementMessage(score);
+            document.getElementById('encouragement-message').textContent = message;
+            speakMessage(message); // อ่านข้อความออกเสียงทันทีเมื่อหน้าปรากฏ
+        };
+    </script>
+</body>
+</html>
