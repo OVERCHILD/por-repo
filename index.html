@@ -16,6 +16,7 @@
         .logo-container img {
             width: 150px; /* ทำให้รูปใหญ่ขึ้น */
             height: 150px; /* ทำให้รูปใหญ่ขึ้น */
+            cursor: pointer; /* เพิ่มการคลิก */
         }
 
         .form-group {
@@ -97,28 +98,40 @@
             text-align: center;
             margin-top: 20px;
         }
+
+        .login-success {
+            background-color: #28a745; /* สีเขียว */
+            color: white;
+            transform: scale(0.95); /* เอฟเฟคปุ่มยุบ */
+        }
+
+        .login-fail {
+            background-color: #dc3545; /* สีแดง */
+            color: white;
+            transform: scale(0.95); /* เอฟเฟคปุ่มยุบ */
+        }
     </style>
 </head>
 <body>
     <div class="quiz-container">
         <div class="start-container">
             <div class="logo-container">
-                <img src="pic/logo03.png" alt="Logo"> <!-- ปรับเส้นทางรูปภาพและทำให้รูปใหญ่ขึ้น -->
+                <img id="logo" src="pic/logo03.png" alt="Logo" onclick="toggleLogo()"> <!-- ปรับเส้นทางรูปภาพและทำให้รูปใหญ่ขึ้น -->
             </div>
             <h2>Login</h2>
             <form id="login-form">
                 <div class="form-group username">
                     <label for="username-login">Username:</label>
-                    <input type="text" id="username-login" name="username" required maxlength="16">
+                    <input type="text" id="username-login" name="username" required maxlength="16" oninput="playTypingSound()">
                 </div>
                 <div class="form-group password">
                     <label for="password-login">Password:</label>
                     <div class="password-container">
-                        <input type="password" id="password-login" name="password" required maxlength="16"> <!-- Removed disabled attribute -->
+                        <input type="password" id="password-login" name="password" required maxlength="16" oninput="playTypingSound()"> <!-- Removed disabled attribute -->
                         <span class="toggle-password" onclick="togglePassword('password-login')">👁️‍🗨️</span>
                     </div>
                 </div>
-                <button type="button" onclick="login()">Login</button>
+                <button type="button" id="login-button" onclick="login()">Login</button>
                 <span class="version-text">90Q Trivia Beta 0.7.12</span> <!-- เพิ่มเวอร์ชั่นเกม -->
             </form>
             <p id="message"></p>
@@ -128,8 +141,38 @@
             </p>
         </div>
     </div>
+    <audio id="typing-sound" src="path/audiofiles/keyboardoneshort.mp3"></audio> <!-- เสียงพิมพ์ -->
+    <audio id="login-sound" src="path/audiofiles/keyboardtyping4.mp3"></audio> <!-- เสียงปุ่ม Login -->
+    <audio id="logo-sound" src="path/audiofiles/lightswitch.mp3"></audio> <!-- เสียงคลิกที่โลโก้ -->
+
     <script>
         let registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
+        let typingSound; // ประกาศตัวแปรสำหรับเสียงพิมพ์
+
+        function playTypingSound() {
+            if (typingSound) {
+                typingSound.pause();
+                typingSound.currentTime = 0;
+            }
+            typingSound = document.getElementById('typing-sound');
+            typingSound.play();
+        }
+
+        function playLoginSound() {
+            const loginSound = document.getElementById('login-sound');
+            loginSound.play();
+        }
+
+        function toggleLogo() {
+            const logo = document.getElementById('logo');
+            const logoSound = document.getElementById('logo-sound');
+            if (logo.src.includes('logo03.png')) {
+                logo.src = 'pic/logo06.png';
+            } else {
+                logo.src = 'pic/logo03.png';
+            }
+            logoSound.play();
+        }
 
         function isValidPassword(password) {
             return password.length >= 8 && password.length <= 16;
@@ -148,18 +191,25 @@
             const username = document.getElementById('username-login').value;
             const password = document.getElementById('password-login').value;
             const message = document.getElementById('message');
-            
+            const loginButton = document.getElementById('login-button');
+
             let user = registeredUsers.find(user => user.username === username);
             if (user && user.password === password) {
                 localStorage.setItem('currentUser', username); // Save current user
                 message.textContent = "Login successful! Redirecting to the quiz...";
                 message.style.color = "green";
+                loginButton.classList.add('login-success'); // เพิ่มคลาสแสงสีเขียวเมื่อเข้าสู่ระบบสำเร็จ
+                playLoginSound(); // เล่นเสียงเมื่อเข้าสู่ระบบสำเร็จ
                 setTimeout(() => {
                     location.href = 'quiz.html';
                 }, 2000);
             } else {
                 message.textContent = "Invalid username or password!";
                 message.style.color = "red";
+                loginButton.classList.add('login-fail'); // เพิ่มคลาสแสงสีแดงเมื่อเข้าสู่ระบบไม่สำเร็จ
+                setTimeout(() => {
+                    loginButton.classList.remove('login-fail'); // ลบคลาสแสงสีแดงหลังจากแสดงผล
+                }, 2000);
             }
         }
 
