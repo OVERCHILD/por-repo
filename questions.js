@@ -1365,81 +1365,6 @@ const questions = [
         correctAnswer: "Mars"
     },
     {
-        question: "Which mysterious crop circle formation appeared in England in 1996 and gained worldwide attention?",
-        options: ["Julia Set", "Barbury Castle", "Milk Hill", "Chilbolton", "East Field", "Stonehenge"],
-        correctAnswer: "Julia Set"
-    },
-    {
-        question: "What unexplained event involved thousands of blackbirds falling from the sky in Arkansas on New Year's Eve 2010?",
-        options: ["Beebe Bird Deaths", "Arkansas Avian Incident", "Blackbird Massacre", "Mysterious Bird Fall", "New Year Bird Plunge", "Unexplained Avian Event"],
-        correctAnswer: "Beebe Bird Deaths"
-    },
-    {
-        question: "Which famous unsolved case involves the disappearance of flight MH370 in 2014?",
-        options: ["Malaysia Airlines", "Air France 447", "TWA Flight 800", "Pan Am Flight 103", "Aloha Airlines", "Delta Flight 191"],
-        correctAnswer: "Malaysia Airlines"
-    },
-    {
-        question: "What strange phenomenon occurred in 1994 when a gelatinous substance fell from the sky in Oakville, Washington?",
-        options: ["Oakville Blobs", "Jelly Rain", "Mysterious Goo", "Sky Slime", "Gelatinous Downpour", "Mysterious Pudding"],
-        correctAnswer: "Oakville Blobs"
-    },
-    {
-        question: "Which unexplained event involved a series of loud, ground-shaking booms heard in Clintonville, Wisconsin in 2012?",
-        options: ["Clintonville Booms", "Wisconsin Rumbles", "Mysterious Tremors", "Unexplained Explosions", "Midwest Shakes", "Clintonville Quakes"],
-        correctAnswer: "Clintonville Booms"
-    },
-    {
-        question: "What unexplained phenomenon was captured on video in Phoenix, Arizona in 1997, involving a series of lights in a V-shaped formation?",
-        options: ["Phoenix Lights", "Arizona UFO", "V-shaped Lights", "Desert Glows", "Mysterious Luminations"],
-        correctAnswer: "Phoenix Lights"
-    },
-    {
-        question: "Which eerie sound was recorded in the ocean in 1997, believed to be one of the loudest underwater noises ever detected?",
-        options: ["The Bloop", "The Hum", "The Echo", "The Boom", "The Rumble", "The Buzz"],
-        correctAnswer: "The Bloop"
-    },
-    {
-        question: "Which mysterious incident in 2007 involved lights and a possible UFO sighting over O'Hare International Airport in Chicago?",
-        options: ["O'Hare UFO", "Chicago Lights", "Airport Incident", "Mysterious Airshow", "O'Hare Sighting", "Sky Anomaly"],
-        correctAnswer: "O'Hare UFO"
-    },
-    {
-        question: "What unexplained object was discovered on the Baltic Sea floor in 2011, sparking theories about its origin?",
-        options: ["Baltic Sea Anomaly", "Nordic UFO", "Underwater Mystery", "Seafloor Object", "Marine Enigma", "Ocean Puzzle"],
-        correctAnswer: "Baltic Sea Anomaly"
-    },
-    {
-        question: "Which unexplained phenomenon occurred in Taos, New Mexico, involving a persistent and low-frequency sound heard by residents?",
-        options: ["Taos Hum", "Desert Buzz", "New Mexico Noise", "Mysterious Murmur", "Southwest Sound", "Taos Rumble"],
-        correctAnswer: "Taos Hum"
-    },
-    {
-        question: "Which eerie phenomena involved thousands of fish appearing dead on the shores of various countries in 2011?",
-        options: ["Fish Kill Phenomenon", "Aqua Mortality", "Mass Fish Deaths", "Sea Life Extinction", "Marine Mystery", "Ocean Dead Zone"],
-        correctAnswer: "Fish Kill Phenomenon"
-    },
-    {
-        question: "Which unsolved mystery involves the disappearance of an entire colony from Roanoke Island in the 16th century?",
-        options: ["Lost Colony of Roanoke", "Roanoke Mystery", "Colonial Vanishing", "Island Enigma", "Disappearing Settlers", "Roanoke Enigma"],
-        correctAnswer: "Lost Colony of Roanoke"
-    },
-    {
-        question: "What is the name of the strange, loud, and unexplained noises heard worldwide, often described as sounding like a trumpet?",
-        options: ["Sky Trumpets", "Heavenly Horns", "Mysterious Sounds", "Celestial Music", "Atmospheric Whistles", "Trumpet Phenomenon"],
-        correctAnswer: "Sky Trumpets"
-    },
-    {
-        question: "Which infamous cryptid was reportedly sighted multiple times in Point Pleasant, West Virginia in the late 1960s?",
-        options: ["Mothman", "Chupacabra", "Bigfoot", "Jersey Devil", "Loch Ness Monster", "Thunderbird"],
-        correctAnswer: "Mothman"
-    },
-    {
-        question: "Which unexplained event involved the sudden and unexplained mass death of bees starting in the early 2000s?",
-        options: ["Colony Collapse Disorder", "Bee Die-off", "Honeybee Crisis", "Bee Mortality", "Apiary Anomaly", "Beekeeper's Blight"],
-        correctAnswer: "Colony Collapse Disorder"
-    },
-    {
         question: "Which supernatural event took place in Enfield, London, involving alleged poltergeist activity in the late 1970s?",
         options: ["Enfield Poltergeist", "London Haunting", "Supernatural Enfield", "British Ghost", "Haunted House", "Enfield Mystery"],
         correctAnswer: "Enfield Poltergeist"
@@ -1448,11 +1373,6 @@ const questions = [
         question: "Which strange, glowing, red lights were reported over Hessdalen Valley in Norway since the 1980s?",
         options: ["Hessdalen Lights", "Norwegian Glow", "Valley Illumination", "Nordic Lights", "Mysterious Red Lights", "Hessdalen Phenomenon"],
         correctAnswer: "Hessdalen Lights"
-    },
-    {
-        question: "Which mysterious event occurred in 2013, involving hundreds of starfish washing ashore along the West Coast of the United States?",
-        options: ["Starfish Die-off", "Marine Mortality", "Sea Star Wasting Syndrome", "Oceanic Death", "Tidal Tragedy"],
-        correctAnswer: "Sea Star Wasting Syndrome"
     },
     {
         question: "Which island, also known as Easter Island, is famous for its giant, mysterious stone statues called Moai?",
