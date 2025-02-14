@@ -17,6 +17,12 @@
             width: 150px; /* ทำให้รูปใหญ่ขึ้น */
             height: 150px; /* ทำให้รูปใหญ่ขึ้น */
             cursor: pointer; /* เพิ่มการคลิก */
+            -webkit-user-drag: none; /* ป้องกันการลากใน Android */
+            -webkit-touch-callout: none; /* ป้องกันการกดค้างใน Android */
+            -moz-user-select: none; /* ป้องกันการเลือกใน Firefox */
+            -webkit-user-select: none; /* ป้องกันการเลือกใน Chrome */
+            -ms-user-select: none; /* ป้องกันการเลือกใน Internet Explorer */
+            user-select: none; /* ป้องกันการเลือกในเบราว์เซอร์อื่น */
         }
 
         .form-group {
@@ -116,7 +122,7 @@
     <div class="quiz-container">
         <div class="start-container">
             <div class="logo-container">
-                <img id="logo" src="pic/logo03.png" alt="Logo" onclick="toggleLogo()"> <!-- ปรับเส้นทางรูปภาพและทำให้รูปใหญ่ขึ้น -->
+                <img id="logo" src="pic/logo03.png" alt="Logo" onclick="toggleLogo()" oncontextmenu="return false;"> <!-- ป้องกันการคลิกขวาที่โลโก้ -->
             </div>
             <h2>Login</h2>
             <form id="login-form">
