@@ -214,6 +214,16 @@
                 return;
             }
 
+            if (!isValidPassword(password)) {
+                message.textContent = "Password must be between 8 and 16 characters!";
+                message.style.color = "red";
+                registerButton.classList.add('register-fail'); // เพิ่มคลาสแสงสีแดงเมื่อไม่สำเร็จ
+                setTimeout(() => {
+                    registerButton.classList.remove('register-fail'); // ลบคลาสแสงสีแดงหลังจากแสดงผล
+                }, 1500);
+                return;
+            }
+
             registeredUsers.push({ username, password });
             localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
 
@@ -243,4 +253,3 @@
     </script>
 </body>
 </html>
-
