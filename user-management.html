@@ -25,16 +25,85 @@
         .delete-button {
             margin-left: 10px; /* เว้นระยะห่างระหว่างปุ่ม Delete กับข้อมูลผู้ใช้ */
         }
+
+        .close-button {
+            position: absolute;
+            top: 10px; /* ตำแหน่งด้านบนของเครื่องหมายกากบาท */
+            right: 10px; /* ตำแหน่งด้านขวาของเครื่องหมายกากบาท */
+            background-color: transparent;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: white; /* เปลี่ยนปุ่มเป็นสีขาว */
+        }
+
+        .pin-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* ให้หน้าเว็บเต็มความสูงของหน้าจอ */
+        }
+
+        .pin-container input {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .pin-container button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #28a745; /* สีเขียว */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .pin-container button:hover {
+            background-color: #218838;
+        }
     </style>
 </head>
 <body>
     <div class="quiz-container"> <!-- ใช้คลาสเดียวกันกับ quiz.html -->
         <div class="start-container">
+            <button class="close-button" onclick="window.location.href='index.html'">✖</button> <!-- ปุ่มกากบาท -->
             <h2>User Management</h2>
-            <ul id="user-list" class="user-list"></ul>
+            <div id="pin-container" class="pin-container">
+                <input type="password" id="pin-input" placeholder="Enter Security PIN">
+                <button onclick="verifyPIN()">Submit</button>
+            </div>
+            <ul id="user-list" class="user-list" style="display: none;"></ul> <!-- ซ่อนรายการผู้ใช้จนกว่าจะมีการตรวจสอบ PIN -->
         </div>
     </div>
     <script>
+        const securityPIN = '7511253120';
+        let pinAttempts = 0;
+
+        function verifyPIN() {
+            const pinInput = document.getElementById('pin-input').value;
+            const userList = document.getElementById('user-list');
+            const pinContainer = document.getElementById('pin-container');
+
+            if (pinInput === securityPIN) {
+                pinContainer.style.display = 'none';
+                userList.style.display = 'block';
+                loadUsers();
+            } else {
+                pinAttempts++;
+                if (pinAttempts >= 3) {
+                    alert('Too many incorrect attempts. Redirecting to login page.');
+                    window.location.href = 'index.html';
+                } else {
+                    alert('Invalid PIN. Please try again.');
+                }
+            }
+        }
+
         function loadUsers() {
             const userList = document.getElementById('user-list');
             const users = JSON.parse(localStorage.getItem('registeredUsers')) || [];
@@ -89,7 +158,6 @@
                         localStorage.setItem('registeredUsers', JSON.stringify(users));
                     }
                 }
-                loadUsers();
             });
         });
     </script>
