@@ -1391,7 +1391,7 @@ const questions = [
     },
     {
         question: "What unexplained phenomenon was captured on video in Phoenix, Arizona in 1997, involving a series of lights in a V-shaped formation?",
-        options: ["Phoenix Lights", "Arizona UFO", "V-shaped Lights", "Desert Glows", "Mysterious Luminations", "Phoenix UFOs"],
+        options: ["Phoenix Lights", "Arizona UFO", "V-shaped Lights", "Desert Glows", "Mysterious Luminations"],
         correctAnswer: "Phoenix Lights"
     },
     {
@@ -1408,11 +1408,6 @@ const questions = [
         question: "What unexplained object was discovered on the Baltic Sea floor in 2011, sparking theories about its origin?",
         options: ["Baltic Sea Anomaly", "Nordic UFO", "Underwater Mystery", "Seafloor Object", "Marine Enigma", "Ocean Puzzle"],
         correctAnswer: "Baltic Sea Anomaly"
-    },
-    {
-        question: "Which mysterious event involved the sudden disappearance of nine hikers in the Ural Mountains in 1959, with unexplained injuries?",
-        options: ["Dyatlov Pass Incident", "Ural Disappearance", "Mysterious Hiker Deaths", "Mountain Mystery", "Soviet Tragedy", "Hiker Enigma"],
-        correctAnswer: "Dyatlov Pass Incident"
     },
     {
         question: "Which unexplained phenomenon occurred in Taos, New Mexico, involving a persistent and low-frequency sound heard by residents?",
@@ -1456,7 +1451,7 @@ const questions = [
     },
     {
         question: "Which mysterious event occurred in 2013, involving hundreds of starfish washing ashore along the West Coast of the United States?",
-        options: ["Starfish Die-off", "Marine Mortality", "Sea Star Wasting Syndrome", "Oceanic Death", "Tidal Tragedy", "Beach Enigma"],
+        options: ["Starfish Die-off", "Marine Mortality", "Sea Star Wasting Syndrome", "Oceanic Death", "Tidal Tragedy"],
         correctAnswer: "Sea Star Wasting Syndrome"
     },
     {
@@ -1580,11 +1575,6 @@ const questions = [
         correctAnswer: "Summer Olympics"
     },
     {
-        question: "Which significant event took place in 2007, marking the first launch of a smartphone that revolutionized communication?",
-        options: ["Launch of the iPhone", "Google's IPO", "Facebook's launch", "Amazon's creation", "Microsoft's launch", "Netflix's launch"],
-        correctAnswer: "Launch of the iPhone"
-    },
-    {
         question: "Which natural disaster struck Japan in 2011, causing widespread damage and a nuclear crisis?",
         options: ["Tsunami and Fukushima Disaster", "Earthquake", "Hurricane", "Volcanic Eruption", "Flood", "Landslide"],
         correctAnswer: "Tsunami and Fukushima Disaster"
@@ -1658,11 +1648,6 @@ const questions = [
         question: "Which event in 2021 saw the United States withdraw its troops from Afghanistan after 20 years of war?",
         options: ["Fall of Kabul", "Taliban Takeover", "Osama bin Laden's Death", "Iraq War", "Syrian Civil War"],
         correctAnswer: "Fall of Kabul"
-    },
-    {
-        question: "Which global climate agreement set 2025 as a key checkpoint for nations to showcase progress in reducing carbon emissions?",
-        options: ["Kyoto Protocol", "Paris Agreement", "Copenhagen Accord", "Montreal Protocol", "Rio Earth Summit"],
-        correctAnswer: "Paris Agreement"
     },
     {
         question: "Which event in 2022 led to a significant energy crisis in Europe?",
@@ -2285,11 +2270,6 @@ const questions = [
         correctAnswer: "Saurischia"
     },
     {
-        question: "Which dinosaur is known for having a prominent horn on its snout and lived during the late Cretaceous period?",
-        options: ["Ceratosaurus", "Tyrannosaurus Rex", "Stegosaurus", "Triceratops", "Brachiosaurus", "Velociraptor"],
-        correctAnswer: "Ceratosaurus"
-    },
-    {
         question: "Which dinosaur is believed to have been one of the fastest runners?",
         options: ["Velociraptor", "Tyrannosaurus Rex", "Stegosaurus", "Triceratops", "Brachiosaurus", "Spinosaurus"],
         correctAnswer: "Velociraptor"
@@ -2345,24 +2325,9 @@ const questions = [
         correctAnswer: "The Dark Knight Rises"
     },
     {
-        question: "Which animated film, released in 2013, follows the story of a young girl who embarks on a journey to find her mother?",
-        options: ["Frozen", "Monsters University", "Despicable Me 2", "Epic", "The Croods", "Brave"],
-        correctAnswer: "Frozen"
-    },
-    {
         question: "Which movie, released in 2015, features a young woman who discovers she has the ability to control water?",
         options: ["Mad Max: Fury Road", "The Martian", "Star Wars: The Force Awakens", "Jurassic World", "The Revenant", "The Shape of Water"],
         correctAnswer: "The Shape of Water"
-    },
-    {
-        question: "Which animated film, released in 2016, tells the story of a young girl who embarks on a journey to find her mother?",
-        options: ["Moana", "Finding Dory", "Zootopia", "Sing", "The Secret Life of Pets", "Trolls"],
-        correctAnswer: "Moana"
-    },
-    {
-        question: "Which superhero movie, released in 2017, features a team of Marvel superheroes coming together to save the world?",
-        options: ["Thor: Ragnarok", "Spider-Man: Homecoming", "Black Panther", "Wonder Woman", "Justice League", "Guardians of the Galaxy Vol. 2"],
-        correctAnswer: "Justice League"
     },
     {
         question: "Which animated film, released in 2018, follows the story of a young girl who dreams of becoming a musician?",
