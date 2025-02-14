@@ -162,6 +162,7 @@
                 typingSound.currentTime = 0;
             }
             typingSound = document.getElementById('typing-sound');
+            typingSound.volume = 0.5; // ลดระดับเสียงลง 50%
             typingSound.play();
         }
 
@@ -230,7 +231,7 @@
 
             registeredUsers.push({ username, password });
             localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
-            
+
             message.textContent = "Registration successful! Redirecting to login...";
             message.style.color = "green";
             registerButton.classList.add('register-success'); // เพิ่มคลาสแสงสีเขียวเมื่อ Register สำเร็จ
@@ -257,4 +258,3 @@
     </script>
 </body>
 </html>
-
