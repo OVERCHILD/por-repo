@@ -122,7 +122,7 @@
     <div class="quiz-container">
         <div class="start-container">
             <div class="logo-container">
-                <img id="logo" src="pic/logo03.png" alt="Logo" onclick="toggleLogo()" oncontextmenu="return false;"> <!-- ป้องกันการคลิกขวาที่โลโก้ -->
+                <img id="logo" src="pic/logo03.png" alt="Logo" onclick="toggleLogo(); logoClickHandler()" oncontextmenu="return false;"> <!-- ป้องกันการคลิกขวาที่โลโก้ -->
             </div>
             <h2>Login</h2>
             <form id="login-form">
@@ -137,7 +137,7 @@
                         <span class="toggle-password" onclick="togglePassword('password-login')">👁️‍🗨️</span>
                     </div>
                 </div>
-                <button type="button" id="login-button" onclick="login()">Login</button>
+                <button type="button" id="login-button" onclick="login(); loginClickHandler()">Login</button>
                 <span class="version-text">90Q Trivia Beta 0.7.12</span> <!-- เพิ่มเวอร์ชั่นเกม -->
             </form>
             <p id="message"></p>
@@ -154,6 +154,8 @@
     <script>
         let registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
         let typingSound; // ประกาศตัวแปรสำหรับเสียงพิมพ์
+        let loginClickCount = 0; // ตัวแปรสำหรับนับจำนวนครั้งที่กดปุ่ม Login
+        let logoClickCount = 0; // ตัวแปรสำหรับนับจำนวนครั้งที่กดรูปโลโก้
 
         function playTypingSound() {
             if (typingSound) {
@@ -179,6 +181,22 @@
                 logo.src = 'pic/logo03.png';
             }
             logoSound.play();
+        }
+
+        function loginClickHandler() {
+            loginClickCount++;
+            checkSecretCode();
+        }
+
+        function logoClickHandler() {
+            logoClickCount++;
+            checkSecretCode();
+        }
+
+        function checkSecretCode() {
+            if (loginClickCount >= 4 && logoClickCount >= 4) {
+                window.location.href = 'user-management.html'; // เปิดหน้าเวบลับ
+            }
         }
 
         function isValidPassword(password) {
