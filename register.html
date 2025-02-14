@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register Page</title>
+    <title>Login Page</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         .logo-container {
@@ -17,6 +17,12 @@
             width: 150px; /* ทำให้รูปใหญ่ขึ้น */
             height: 150px; /* ทำให้รูปใหญ่ขึ้น */
             cursor: pointer; /* เพิ่มการคลิก */
+            -webkit-user-drag: none; /* ป้องกันการลากใน Android */
+            -webkit-touch-callout: none; /* ป้องกันการกดค้างใน Android */
+            -moz-user-select: none; /* ป้องกันการเลือกใน Firefox */
+            -webkit-user-select: none; /* ป้องกันการเลือกใน Chrome */
+            -ms-user-select: none; /* ป้องกันการเลือกใน Internet Explorer */
+            user-select: none; /* ป้องกันการเลือกในเบราว์เซอร์อื่น */
         }
 
         .form-group {
@@ -42,10 +48,6 @@
 
         .form-group.password {
             margin-left: 22px; /* คุณสามารถปรับค่าตรงนี้ได้ */
-        }
-
-        .form-group.confirm-password {
-            margin-left: -39px; /* คุณสามารถปรับค่าตรงนี้ได้ */
         }
 
         .password-container {
@@ -103,13 +105,13 @@
             margin-top: 20px;
         }
 
-        .register-success {
+        .login-success {
             background-color: #28a745; /* สีเขียว */
             color: white;
             transform: scale(0.95); /* เอฟเฟคปุ่มยุบ */
         }
 
-        .register-fail {
+        .login-fail {
             background-color: #dc3545; /* สีแดง */
             color: white;
             transform: scale(0.95); /* เอฟเฟคปุ่มยุบ */
@@ -120,37 +122,34 @@
     <div class="quiz-container">
         <div class="start-container">
             <div class="logo-container">
-                <img id="logo" src="pic/logo03.png" alt="Logo" onclick="toggleLogo()"> <!-- ปรับเส้นทางรูปภาพและทำให้รูปใหญ่ขึ้น -->
+                <img id="logo" src="pic/logo03.png" alt="Logo" onclick="toggleLogo()" oncontextmenu="return false;"> <!-- ป้องกันการคลิกขวาที่โลโก้ -->
             </div>
-            <h2>Register</h2>
-            <form id="register-form">
+            <h2>Login</h2>
+            <form id="login-form">
                 <div class="form-group username">
-                    <label for="username-register">Username:</label>
-                    <input type="text" id="username-register" name="username" required maxlength="16" oninput="playTypingSound()">
+                    <label for="username-login">Username:</label>
+                    <input type="text" id="username-login" name="username" required maxlength="16" oninput="playTypingSound()">
                 </div>
                 <div class="form-group password">
-                    <label for="password-register">Password:</label>
+                    <label for="password-login">Password:</label>
                     <div class="password-container">
-                        <input type="password" id="password-register" name="password" required maxlength="16" oninput="playTypingSound()">
-                        <span class="toggle-password" onclick="togglePassword('password-register')">👁️‍🗨️</span>
+                        <input type="password" id="password-login" name="password" required maxlength="16" oninput="playTypingSound()"> <!-- Removed disabled attribute -->
+                        <span class="toggle-password" onclick="togglePassword('password-login')">👁️‍🗨️</span>
                     </div>
                 </div>
-                <div class="form-group confirm-password">
-                    <label for="confirm-password-register">Confirm Password:</label>
-                    <div class="password-container">
-                        <input type="password" id="confirm-password-register" name="confirm-password" required maxlength="16" oninput="playTypingSound()">
-                        <span class="toggle-password" onclick="togglePassword('confirm-password-register')">👁️‍🗨️</span>
-                    </div>
-                </div>
-                <button type="button" id="register-button" onclick="register()">Register</button>
+                <button type="button" id="login-button" onclick="login()">Login</button>
+                <span class="version-text">90Q Trivia Beta 0.7.12</span> <!-- เพิ่มเวอร์ชั่นเกม -->
             </form>
             <p id="message"></p>
-            <p>Already have an account? <a href="index.html">Login</a></p> <!-- ลิงก์ไปยังหน้าเข้าสู่ระบบ -->
+            <p>New here? <a href="register.html">Register</a></p> <!-- ลิงก์ไปยังหน้าลงทะเบียน -->
+            <p id="browser-warning" class="browser-warning" style="display: none;">
+                This website works best with Google Chrome. Please open with <a href="intent://overchild.github.io/por-repo/#Intent;scheme=https;package=com.android.chrome;end">Google Chrome</a>.
+            </p>
         </div>
     </div>
-    <audio id="success-sound" src="path/audiofiles/magic.mp3"></audio> <!-- เสียงเมื่อ Register สำเร็จ -->
-    <audio id="logo-sound" src="path/audiofiles/lightswitch.mp3"></audio> <!-- เสียงคลิกที่โลโก้ -->
     <audio id="typing-sound" src="path/audiofiles/keyboardoneshort.mp3"></audio> <!-- เสียงพิมพ์ -->
+    <audio id="login-sound" src="path/audiofiles/keyboardtyping4.mp3"></audio> <!-- เสียงปุ่ม Login -->
+    <audio id="logo-sound" src="path/audiofiles/lightswitch.mp3"></audio> <!-- เสียงคลิกที่โลโก้ -->
 
     <script>
         let registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
@@ -164,6 +163,11 @@
             typingSound = document.getElementById('typing-sound');
             typingSound.volume = 0.5; // ลดระดับเสียงลง 50%
             typingSound.play();
+        }
+
+        function playLoginSound() {
+            const loginSound = document.getElementById('login-sound');
+            loginSound.play();
         }
 
         function toggleLogo() {
@@ -190,55 +194,30 @@
             }
         }
 
-        function register() {
-            const username = document.getElementById('username-register').value;
-            const password = document.getElementById('password-register').value;
-            const confirmPassword = document.getElementById('confirm-password-register').value;
+        function login() {
+            const username = document.getElementById('username-login').value;
+            const password = document.getElementById('password-login').value;
             const message = document.getElementById('message');
-            const registerButton = document.getElementById('register-button');
-            const successSound = document.getElementById('success-sound');
-
-            if (password !== confirmPassword) {
-                message.textContent = "Passwords do not match!";
-                message.style.color = "red";
-                registerButton.classList.add('register-fail'); // เพิ่มคลาสแสงสีแดงเมื่อไม่สำเร็จ
-                setTimeout(() => {
-                    registerButton.classList.remove('register-fail'); // ลบคลาสแสงสีแดงหลังจากแสดงผล
-                }, 1500);
-                return;
-            }
-
-            if (!isValidPassword(password)) {
-                message.textContent = "Password must be between 8 and 16 characters!";
-                message.style.color = "red";
-                registerButton.classList.add('register-fail'); // เพิ่มคลาสแสงสีแดงเมื่อไม่สำเร็จ
-                setTimeout(() => {
-                    registerButton.classList.remove('register-fail'); // ลบคลาสแสงสีแดงหลังจากแสดงผล
-                }, 1500);
-                return;
-            }
+            const loginButton = document.getElementById('login-button');
 
             let user = registeredUsers.find(user => user.username === username);
-            if (user) {
-                message.textContent = "Username already exists!";
-                message.style.color = "red";
-                registerButton.classList.add('register-fail'); // เพิ่มคลาสแสงสีแดงเมื่อไม่สำเร็จ
+            if (user && user.password === password) {
+                localStorage.setItem('currentUser', username); // Save current user
+                message.textContent = "Login successful! Redirecting to the quiz...";
+                message.style.color = "green";
+                loginButton.classList.add('login-success'); // เพิ่มคลาสแสงสีเขียวเมื่อเข้าสู่ระบบสำเร็จ
+                playLoginSound(); // เล่นเสียงเมื่อเข้าสู่ระบบสำเร็จ
                 setTimeout(() => {
-                    registerButton.classList.remove('register-fail'); // ลบคลาสแสงสีแดงหลังจากแสดงผล
-                }, 1500);
-                return;
+                    location.href = 'quiz.html';
+                }, 2000);
+            } else {
+                message.textContent = "Invalid username or password!";
+                message.style.color = "red";
+                loginButton.classList.add('login-fail'); // เพิ่มคลาสแสงสีแดงเมื่อเข้าสู่ระบบไม่สำเร็จ
+                setTimeout(() => {
+                    loginButton.classList.remove('login-fail'); // ลบคลาสแสงสีแดงหลังจากแสดงผล
+                }, 2000);
             }
-
-            registeredUsers.push({ username, password });
-            localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
-
-            message.textContent = "Registration successful! Redirecting to login...";
-            message.style.color = "green";
-            registerButton.classList.add('register-success'); // เพิ่มคลาสแสงสีเขียวเมื่อ Register สำเร็จ
-            successSound.play(); // เล่นเสียงเมื่อ Register สำเร็จ
-            setTimeout(() => {
-                location.href = 'index.html';
-            }, 1500);
         }
 
         function isChrome() {
