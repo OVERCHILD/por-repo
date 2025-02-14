@@ -1,257 +1,482 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <meta name="viewport" content="width=device-width, initial-width=1.0">
+    <title>Quiz Page</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 10px; /* ลดระยะห่างด้านล่างของโลโก้ */
-            margin-top: -75px; /* เพิ่มระยะห่างด้านบนของโลโก้ */
-        }
-
-        .logo-container img {
-            width: 150px; /* ทำให้รูปใหญ่ขึ้น */
-            height: 150px; /* ทำให้รูปใหญ่ขึ้น */
-            cursor: pointer; /* เพิ่มการคลิก */
-            -webkit-user-drag: none; /* ป้องกันการลากใน Android */
-            -webkit-touch-callout: none; /* ป้องกันการกดค้างใน Android */
-            -moz-user-select: none; /* ป้องกันการเลือกใน Firefox */
-            -webkit-user-select: none; /* ป้องกันการเลือกใน Chrome */
-            -ms-user-select: none; /* ป้องกันการเลือกใน Internet Explorer */
-            user-select: none; /* ป้องกันการเลือกในเบราว์เซอร์อื่น */
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .form-group label {
-            color: black; /* ทำให้ตัวหนังสือสีดำ */
-            margin-right: 10px; /* เพิ่มระยะห่างด้านขวาของ label */
-        }
-
-        .form-group input {
-            max-width: 220px; /* ปรับความยาวของแถบกรอกข้อมูล */
-        }
-
-        /* ขยับ margin-left สำหรับแต่ละฟิลด์ */
-        .form-group.username {
-            margin-left: 20px; /* คุณสามารถปรับค่าตรงนี้ได้ */
-        }
-
-        .form-group.password {
-            margin-left: 22px; /* คุณสามารถปรับค่าตรงนี้ได้ */
-        }
-
-        .password-container {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
-        .password-container input {
-            flex: 1;
-        }
-
-        .toggle-password {
+        .user-info {
             position: absolute;
-            right: 10px;
-            cursor: pointer;
+            top: 10px;
+            left: 10px;
+            text-align: left;
+            color: white;
         }
 
-        .start-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100vh; /* ให้หน้าเว็บเต็มความสูงของหน้าจอ */
-            position: relative;
+        .user-info span {
+            display: block;
         }
 
-        .start-container form {
-            width: 100%; /* ให้ฟอร์มกว้างเต็มหน้าจอ */
-            max-width: 350px; /* กำหนดความกว้างสูงสุด */
-            height: 130px; /* กำหนดความสูงหรือปรับเปลี่ยนค่าตรงนี้ได้ */
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            background-color: white;
-            text-align: center;
-            position: relative;
+        .user-info .status-blink {
+            animation: status-blink-animation 2s infinite;
         }
 
-        .version-text {
-            position: absolute;
-            bottom: 10px; /* ขยับตำแหน่งด้านล่างของกรอบกรอกรหัสล็อกอิน */
-            right: 10px; /* ขยับตำแหน่งด้านในของกรอบกรอกรหัสล็อกอิน */
-            font-size: 0.8em;
-            color: lightgray; /* ตัวหนังสือสีเทาอ่อน */
+        @keyframes status-blink-animation {
+            0% {
+                color: green;
+            }
+            50% {
+                color: white;
+            }
+            100% {
+                color: green;
+            }
         }
 
-        .start-container a {
-            color: orange; /* ทำให้ลิงก์ Register สีส้ม */
-        }
-
-        .browser-warning {
+        .user-info .offline {
             color: red;
-            text-align: center;
-            margin-top: 20px;
         }
 
-        .login-success {
-            background-color: #28a745; /* สีเขียว */
+        .logout-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            margin-top: 5px;
+            padding: 4px 8px; /* ลดขนาดปุ่มลง 15% */
+            background-color: #FF5733; /* สีส้ม */
             color: white;
-            transform: scale(0.95); /* เอฟเฟคปุ่มยุบ */
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
 
-        .login-fail {
-            background-color: #dc3545; /* สีแดง */
+        .logout-button:hover {
+            background-color: #C70039; /* สีแดงเข้ม */
+        }
+
+        .result-message {
+            position: absolute;
+            bottom: 10px; /* ขยับข้อความให้อยู่ล่างสุด */
+            right: 10px; /* ขยับข้อความให้อยู่ขวาสุด */
+        }
+
+        .score-container {
+            margin-top: 50px; /* ขยับแถบคะแนนลงมา */
+            color: gold; /* เปลี่ยนสีเป็นสีเหลืองทอง */
+        }
+
+        .question-container {
+            margin-top: 40px; /* ขยับชุดคำถามลงมา */
+        }
+
+        .question-text {
+            margin-bottom: 40px; /* เพิ่มช่องไฟระหว่างคำถามและคำตอบ */
+            font-size: 1.3em; /* เพิ่มขนาดตัวหนังสือในส่วนของคำถาม */
+            font-weight: bold; /* ทำให้เป็นตัวหนังสือแบบหนา */
+            text-shadow: 1px 1px 2px black; /* ใส่ขอบนอกตัวหนังสือเป็นสีดำเข้ม */
+            text-align: left; /* ชิดซ้าย */
+        }
+
+        .option-label {
+            display: block;
+            margin-bottom: 4px; /* ลดช่องไฟความห่างของตัวเลือกคำตอบ */
+        }
+
+        .button-container {
+            margin-top: 30px; /* เพิ่มช่องว่างระหว่างปุ่มกับคำตอบ */
+        }
+
+        .btn {
+            background-color: #FF5733;
             color: white;
-            transform: scale(0.95); /* เอฟเฟคปุ่มยุบ */
+            border: 2px solid #FF5733; /* ใส่ขอบให้ปุ่ม */
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* ใส่เงาเพื่อให้มีมิติ */
+        }
+
+        .btn:hover {
+            background-color: #C70039;
+            border-color: #C70039; /* เปลี่ยนสีขอบเมื่อ hover */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .timer {
+            position: absolute;
+            top: 25px; /* เลื่อนแถบนับเวลาถอยหลังลงมา */
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1.5em;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .timer-blink-red {
+            animation: timer-blink-red-animation 0.5s steps(2, start) 2; /* กระพริบเป็นเวลา 1 วินาที */
+        }
+
+        @keyframes timer-blink-red-animation {
+            0%, 100% {
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+            50% {
+                background-color: red;
+            }
+        }
+
+        .timer-blink-green {
+            animation: timer-blink-green-animation 0.5s steps(2, start) 2; /* กระพริบเป็นเวลา 1 วินาที */
+        }
+
+        @keyframes timer-blink-green-animation {
+            0%, 100% {
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+            50% {
+                background-color: green;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="quiz-container">
-        <div class="start-container">
-            <div class="logo-container">
-                <img id="logo" src="pic/logo03.png" alt="Logo" onclick="toggleLogo(); logoClickHandler()" oncontextmenu="return false;"> <!-- ป้องกันการคลิกขวาที่โลโก้ -->
-            </div>
-            <h2>Login</h2>
-            <form id="login-form">
-                <div class="form-group username">
-                    <label for="username-login">Username:</label>
-                    <input type="text" id="username-login" name="username" required maxlength="16" oninput="playTypingSound()">
-                </div>
-                <div class="form-group password">
-                    <label for="password-login">Password:</label>
-                    <div class="password-container">
-                        <input type="password" id="password-login" name="password" required maxlength="16" oninput="playTypingSound()"> <!-- Removed disabled attribute -->
-                        <span class="toggle-password" onclick="togglePassword('password-login')">👁️‍🗨️</span>
-                    </div>
-                </div>
-                <button type="button" id="login-button" onclick="login(); loginClickHandler()">Login</button>
-                <span class="version-text">90Q Trivia Beta 0.7.12</span> <!-- เพิ่มเวอร์ชั่นเกม -->
-            </form>
-            <p id="message"></p>
-            <p>New here? <a href="register.html">Register</a></p> <!-- ลิงก์ไปยังหน้าลงทะเบียน -->
-            <p id="browser-warning" class="browser-warning" style="display: none;">
-                This website works best with Google Chrome. Please open with <a href="intent://overchild.github.io/por-repo/#Intent;scheme=https;package=com.android.chrome;end">Google Chrome</a>.
-            </p>
+    <div class="timer" id="timer">90</div> <!-- เวลานับถอยหลัง -->
+    <div class="quiz-container" style="height: 80vh;"> <!-- เพิ่มความสูงของหน้าต่าง -->
+        <div class="user-info">
+            <span id="username-display"></span>
+            <span id="user-status" class="status-blink">Online</span>
         </div>
+        <button class="logout-button" onclick="logout()">Logout</button>
+        <div class="score-container">
+            <p id="score-text">Score: <span id="score">0</span> (Highest: <span id="highest-score">0</span>)</p>
+        </div>
+        <div id="question-container" class="question-container"></div>
+        <div class="button-container" style="margin-top: 20px;"> <!-- เพิ่มช่องว่างระหว่างปุ่มกับคำตอบ -->
+            <button id="confirm-button" class="btn bold-blink" onclick="playClick2Sound(); checkAnswer()">Confirm Answer</button>
+            <button id="next-button" class="btn bold-blink" onclick="loadNextQuestionWithDelay()" style="display: none;">Next Question</button>
+        </div>
+        <p id="result-message" class="result-message">Please select an answer.</p>
+        <p id="warning-message" class="warning-message" style="display: none;">Your browser doesn't support text-to-speech. Please use a different browser.</p>
     </div>
-    <audio id="typing-sound" src="path/audiofiles/keyboardoneshort.mp3"></audio> <!-- เสียงพิมพ์ -->
-    <audio id="login-sound" src="path/audiofiles/keyboardtyping4.mp3"></audio> <!-- เสียงปุ่ม Login -->
-    <audio id="logo-sound" src="path/audiofiles/lightswitch.mp3"></audio> <!-- เสียงคลิกที่โลโก้ -->
 
+    <audio id="correct-sound" src="path/audiofiles/correct.mp3"></audio>
+    <audio id="wrong-sound" src="path/audiofiles/wrong.mp3"></audio>
+    <audio id="next-sound" src="path/audiofiles/next.mp3"></audio>
+    <audio id="click-sound" src="path/audiofiles/click.mp3"></audio> <!-- เพิ่มเสียงคลิก -->
+    <audio id="click2-sound" src="path/audiofiles/click2.mp3"></audio> <!-- เพิ่มเสียงคลิกสำหรับปุ่ม Confirm Answer -->
+
+    <script src="questions.js"></script>
     <script>
-        let registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
-        let typingSound; // ประกาศตัวแปรสำหรับเสียงพิมพ์
-        let loginClickCount = 0; // ตัวแปรสำหรับนับจำนวนครั้งที่กดปุ่ม Login
-        let logoClickCount = 0; // ตัวแปรสำหรับนับจำนวนครั้งที่กดรูปโลโก้
-
-        function playTypingSound() {
-            if (typingSound) {
-                typingSound.pause();
-                typingSound.currentTime = 0;
-            }
-            typingSound = document.getElementById('typing-sound');
-            typingSound.volume = 0.5; // ลดระดับเสียงลง 50%
-            typingSound.play();
+        // Check if the user is logged in
+        const currentUser = localStorage.getItem('currentUser');
+        if (!currentUser) {
+            alert('Please log in first.');
+            location.href = 'index.html';
+        } else {
+            document.getElementById('username-display').textContent = currentUser;
         }
 
-        function playLoginSound() {
-            const loginSound = document.getElementById('login-sound');
-            loginSound.play();
+        // Retrieve and display the highest score
+        const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
+        const currentUserData = registeredUsers.find(user => user.username === currentUser);
+        let highestScore = currentUserData ? currentUserData.highestScore || 0 : 0;
+        document.getElementById('highest-score').textContent = highestScore;
+
+        function logout() {
+            localStorage.removeItem('currentUser');
+            location.href = 'index.html';
         }
 
-        function toggleLogo() {
-            const logo = document.getElementById('logo');
-            const logoSound = document.getElementById('logo-sound');
-            if (logo.src.includes('logo03.png')) {
-                logo.src = 'pic/logo06.png';
+        function updateOnlineStatus() {
+            const statusElement = document.getElementById('user-status');
+            if (navigator.onLine) {
+                statusElement.textContent = 'Online';
+                statusElement.classList.remove('offline');
+                statusElement.classList.add('status-blink');
             } else {
-                logo.src = 'pic/logo03.png';
-            }
-            logoSound.play();
-        }
-
-        function loginClickHandler() {
-            loginClickCount++;
-            checkSecretCode();
-        }
-
-        function logoClickHandler() {
-            logoClickCount++;
-            checkSecretCode();
-        }
-
-        function checkSecretCode() {
-            if (loginClickCount >= 4 && logoClickCount >= 4) {
-                window.location.href = 'user-management.html'; // เปิดหน้าเวบลับ
+                statusElement.textContent = 'Offline';
+                statusElement.classList.remove('status-blink');
+                statusElement.classList.add('offline');
             }
         }
 
-        function isValidPassword(password) {
-            return password.length >= 8 && password.length <= 16;
+        window.addEventListener('online', updateOnlineStatus);
+        window.addEventListener('offline', updateOnlineStatus);
+
+        updateOnlineStatus(); // Update status on page load
+
+        let questionsList = [...questions]; // ทำสำเนาของคำถามทั้งหมด
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let firstButtonClickCount = 0; // ตัวแปรนับจำนวนครั้งที่กดปุ่มคำตอบปุ่มแรก
+        let lastButtonClickCount = 0; // ตัวแปรนับจำนวนครั้งที่กดปุ่มคำตอบปุ่มสุดท้าย
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
         }
 
-        function togglePassword(fieldId) {
-            const passwordField = document.getElementById(fieldId);
-            if (passwordField.type === "password") {
-                passwordField.type = "text";
+        function loadQuestion(questionIndex) {
+            const questionContainer = document.getElementById('question-container');
+            const question = questionsList[questionIndex];
+
+            let html = `<p class="question-text" onclick="speakQuestion('${question.question}')">${question.question}</p>`;
+
+            const shuffledOptions = shuffleArray([...question.options]);
+
+            shuffledOptions.forEach((option, index) => {
+                html += `
+                    <input type="radio" id="option${index}" name="options" value="${option}">
+                    <label for="option${index}" class="option-label" onclick="speakOption('${option}'); playClickSound(); handleOptionClick(${index}, ${shuffledOptions.length - 1})">${option}</label><br>
+                `;
+            });
+
+            questionContainer.innerHTML = html;
+
+            // อ่านคำถามเมื่อแสดงผล
+            speakQuestion(question.question);
+
+            const optionLabels = document.querySelectorAll('.option-label');
+            optionLabels.forEach(label => {
+                label.addEventListener('click', () => {
+                    optionLabels.forEach(l => l.classList.remove('selected'));
+                    label.classList.add('selected');
+                });
+            });
+        }
+
+        function handleOptionClick(index, lastIndex) {
+            if (index === 0) {
+                firstButtonClickCount++;
             } else {
-                passwordField.type = "password";
+                firstButtonClickCount = 0;
+            }
+
+            if (index === lastIndex) {
+                lastButtonClickCount++;
+            } else {
+                lastButtonClickCount = 0;
+            }
+
+            if (firstButtonClickCount >= 4 && lastButtonClickCount >= 4) {
+                addExtraTime(180); // เพิ่มเวลา 180 วินาที
+                firstButtonClickCount = 0; // รีเซ็ตตัวนับ
+                lastButtonClickCount = 0; // รีเซ็ตตัวนับ
             }
         }
 
-        function login() {
-            const username = document.getElementById('username-login').value;
-            const password = document.getElementById('password-login').value;
-            const message = document.getElementById('message');
-            const loginButton = document.getElementById('login-button');
+        function addExtraTime(seconds) {
+            timer += seconds;
+            const timerElement = document.getElementById('timer');
+            timerElement.textContent = timer;
+        }
 
-            let user = registeredUsers.find(user => user.username === username);
-            if (user && user.password === password) {
-                localStorage.setItem('currentUser', username); // Save current user
-                message.textContent = "Login successful! Redirecting to the quiz...";
-                message.style.color = "green";
-                loginButton.classList.add('login-success'); // เพิ่มคลาสแสงสีเขียวเมื่อเข้าสู่ระบบสำเร็จ
-                playLoginSound(); // เล่นเสียงเมื่อเข้าสู่ระบบสำเร็จ
+        let utterance; // ประกาศตัวแปรสำหรับการอ่านออกเสียง
+
+        function speakQuestion(text) {
+            if ('speechSynthesis' in window) {
+                if (utterance) {
+                    window.speechSynthesis.cancel(); // หยุดเสียงการอ่านที่กำลังเล่นอยู่
+                }
+                utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'en-US';
+                window.speechSynthesis.speak(utterance);
+            } else {
+                showWarningMessage();
+            }
+        }
+
+        function speakOption(option) {
+            if ('speechSynthesis' in window) {
+                if (utterance) {
+                    window.speechSynthesis.cancel(); // หยุดเสียงการอ่านที่กำลังเล่นอยู่
+                }
+                utterance = new SpeechSynthesisUtterance(option);
+                utterance.lang = 'en-US';
+                window.speechSynthesis.speak(utterance);
+            } else {
+                showWarningMessage();
+            }
+        }
+
+        function playClickSound() {
+            const clickSound = document.getElementById('click-sound');
+            clickSound.volume = 0.1; // ปรับเสียงคลิกเหลือ 10%
+            clickSound.play();
+        }
+
+        function playClick2Sound() {
+            const click2Sound = document.getElementById('click2-sound');
+            click2Sound.play();
+        }
+
+        function showWarningMessage() {
+            const warningMessage = document.getElementById('warning-message');
+            warningMessage.style.display = 'block';
+        }
+
+        let timer; // ตัวแปรสำหรับเก็บเวลาคงเหลือ
+
+        function checkAnswer() {
+            const selectedOption = document.querySelector('input[name="options"]:checked');
+            const resultMessage = document.getElementById('result-message');
+            const confirmButton = document.getElementById('confirm-button');
+            const nextButton = document.getElementById('next-button');
+            const scoreDisplay = document.getElementById('score');
+            const scoreText = document.getElementById('score-text');
+            const correctSound = document.getElementById('correct-sound');
+            const wrongSound = document.getElementById('wrong-sound');
+            const timerElement = document.getElementById('timer'); // ตัวจับเวลา
+
+            if (selectedOption) {
+                const answer = selectedOption.value;
+                const selectedLabel = selectedOption.nextElementSibling; // แท็ก <label> ที่ถูกเลือก
+                if (answer === questionsList[currentQuestionIndex].correctAnswer) {
+                    resultMessage.textContent = "Correct!";
+                    resultMessage.style.color = "green";
+                    score++;
+                    scoreDisplay.textContent = score;
+                    scoreText.classList.add('score-blink'); // เพิ่มคลาสกระพริบให้กับ Score: และคะแนน
+                    setTimeout(() => {
+                        scoreText.classList.remove('score-blink'); // ลบคลาสกระพริบ
+                    }, 2000); // กระพริบ 2 วินาที
+                    correctSound.play();
+                    timerElement.classList.add('timer-blink-green'); // กระพริบเป็นสีเขียวเมื่อเวลาหมด
+                    setTimeout(() => {
+                        timerElement.classList.remove('timer-blink-green');
+                    }, 1000); // กระพริบ 1 วินาที
+                    selectedLabel.style.backgroundColor = "#a0d2eb"; // สีฟ้าอ่อน
+                    selectedLabel.style.color = "black"; // สีตัวหนังสือ
+                    timer += 3; // เพิ่มเวลา 3 วินาทีเมื่อตอบถูก
+                    // อัปเดตคะแนนสูงสุด
+                    if (score > highestScore) {
+                        highestScore = score;
+                        document.getElementById('highest-score').textContent = highestScore;
+                        currentUserData.highestScore = highestScore;
+                        localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
+                    }
+                } else {
+                    resultMessage.textContent = "Wrong!";
+                    resultMessage.style.color = "red";
+                    wrongSound.play();
+                    timerElement.classList.add('timer-blink-red'); // กระพริบเป็นสีแดงเมื่อเวลาหมด
+                    setTimeout(() => {
+                        timerElement.classList.remove('timer-blink-red');
+                    }, 1000); // กระพริบ 1 วินาที
+                    selectedLabel.style.backgroundColor = "#ffcc80"; // สีส้ม
+                    selectedLabel.style.color = "black"; // สีตัวหนังสือ
+                    timer -= 7; // ลดเวลา 7 วินาทีเมื่อตอบผิด
+                }
+                confirmButton.style.display = "none";
+                nextButton.style.display = "block";
+                nextButton.classList.add('bold-blink'); // เพิ่มคลาสกระพริบให้กับปุ่ม Next Question
+                // ลบการตั้งเวลาให้ปุ่ม Next Question กดอัตโนมัติ
+            } else {
+                resultMessage.textContent = "Please select an answer.";
+                resultMessage.style.color = "orange";
+                // กระพริบข้อความและเล่นเสียง
+                resultMessage.classList.add('blink');
+                speakWarningMessage(resultMessage.textContent);
                 setTimeout(() => {
-                    location.href = 'quiz.html';
-                }, 2000);
-            } else {
-                message.textContent = "Invalid username or password!";
-                message.style.color = "red";
-                loginButton.classList.add('login-fail'); // เพิ่มคลาสแสงสีแดงเมื่อเข้าสู่ระบบไม่สำเร็จ
-                setTimeout(() => {
-                    loginButton.classList.remove('login-fail'); // ลบคลาสแสงสีแดงหลังจากแสดงผล
-                }, 2000);
+                    resultMessage.classList.remove('blink');
+                }, 2000); // กระพริบ 2 วินาที
             }
         }
 
-        function isChrome() {
-            const userAgent = navigator.userAgent.toLowerCase();
-            return /chrome/.test(userAgent) && 
-                   /google inc/.test(navigator.vendor) && 
-                   !/opr|opera|edg/.test(userAgent);
+        function speakWarningMessage(text) {
+            if ('speechSynthesis' in window) {
+                if (utterance) {
+                    window.speechSynthesis.cancel(); // หยุดเสียงการอ่านที่กำลังเล่นอยู่
+                }
+                utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'en-US';
+                window.speechSynthesis.speak(utterance);
+            } else {
+                showWarningMessage();
+            }
+        }
+
+        function loadNextQuestion() {
+            if (utterance) {
+                window.speechSynthesis.cancel(); // หยุดเสียงการอ่านที่กำลังเล่นอยู่
+            }
+            const resultMessage = document.getElementById('result-message');
+            const confirmButton = document.getElementById('confirm-button');
+            const nextButton = document.getElementById('next-button');
+            const questionContainer = document.getElementById('question-container');
+
+            resultMessage.textContent = "Please select an answer.";
+            resultMessage.style.color = "orange";
+            confirmButton.style.display = "block";
+            nextButton.style.display = "none";
+            nextButton.classList.remove('bold-blink'); // ลบคลาสกระพริบเมื่อเปลี่ยนคำถาม
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questionsList.length) {
+                loadQuestion(currentQuestionIndex);
+            } else {
+                resultMessage.textContent = "You've completed all questions!";
+                resultMessage.style.color = "blue";
+                confirmButton.style.display = "none";
+                nextButton.style.display = "none";
+            }
+        }
+
+        function loadNextQuestionWithDelay() {
+            if (utterance) {
+                window.speechSynthesis.cancel(); // หยุดเสียงการอ่านที่กำลังเล่นอยู่
+            }
+            const nextSound = document.getElementById('next-sound');
+            nextSound.volume = 0.6; // ลดเสียงเหลือ 60%
+            nextSound.play();
+            setTimeout(loadNextQuestion, 1000); // ดีเลย์ 1.0 วินาทีก่อนโหลดคำถามถัดไป
+        }
+
+        function startTimer(duration, display) {
+            timer = duration;
+            const timerInterval = setInterval(function () {
+                if (timer <= 0) {
+                    timer = 0;
+                    clearInterval(timerInterval);
+                    display.textContent = "0";
+                    display.classList.add('timer-blink-grey'); // เพิ่มคลาสกระพริบเมื่อเวลาหมด
+                    setTimeout(() => {
+                        display.classList.remove('timer-blink-grey');
+                    }, 4000); // กระพริบ 4 วินาที
+                    // บันทึกคะแนนปัจจุบันและคะแนนสูงสุดใน localStorage
+                    localStorage.setItem('currentScore', score);
+                    localStorage.setItem('highestScore', highestScore);
+                    // หน้าจอเกมค้างอยู่ 2.5 วินาทีก่อนเปลี่ยนไปที่ summary.html
+                    setTimeout(() => {
+                        location.href = 'summary.html';
+                    }, 2500);
+                } else {
+                    display.textContent = timer;
+                }
+
+                if (--timer < 0) {
+                    timer = 0;
+                }
+            }, 1000);
         }
 
         window.onload = function () {
-            const browserWarning = document.getElementById('browser-warning');
-
-            if (!isChrome()) {
-                browserWarning.style.display = 'block';
-            }
+            let duration = 90; // 90 วินาที
+            let display = document.querySelector('#timer');
+            startTimer(duration, display);
         };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            questionsList = shuffleArray(questionsList); // สุ่มชุดคำถามเมื่อโหลดหน้าเว็บ
+            loadQuestion(currentQuestionIndex); // โหลดคำถามแรกพร้อมเสียงอ่านอัตโนมัติ
+        });
     </script>
 </body>
 </html>
