@@ -2295,23 +2295,288 @@ const questions = [
         correctAnswer: "The Dark Knight Rises"
     },
     {
-        question: "Which animated film, released in 2007, follows the story of a young girl who dreams of becoming a musician?",
-        options: ["Encanto", "Luca", "Raya and the Last Dragon", "The Mitchells vs. the Machines", "Cruella", "Coco"],
-        correctAnswer: "Coco"
+        question: "Which video game, released in 2007, is known for its open-world gameplay and is set in the Wild West?",
+        options: ["Red Dead Redemption", "Call of Juarez", "Gun", "Darkwatch", "Outlaws", "Desperados"],
+        correctAnswer: "Red Dead Redemption"
     },
     {
-        question: "Which animated film, released in 2009, tells the story of a young boy who dreams of becoming a musician?",
-        options: ["Encanto", "Luca", "Raya and the Last Dragon", "The Mitchells vs. the Machines", "Cruella", "Coco"],
-        correctAnswer: "Coco"
+        question: "Which video game, released in 2001, is a first-person shooter set in the World War II era?",
+        options: ["Medal of Honor: Allied Assault", "Call of Duty", "Battlefield 1942", "Brothers in Arms: Road to Hill 30", "Wolfenstein: Enemy Territory", "Company of Heroes"],
+        correctAnswer: "Medal of Honor: Allied Assault"
     },
     {
-        question: "Which superhero movie, released in 2010, features a dark and gritty version of Batman?",
-        options: ["The Dark Knight Rises", "The Avengers", "The Amazing Spider-Man", "Skyfall", "The Hunger Games", "Man of Steel"],
-        correctAnswer: "The Dark Knight Rises"
+        question: "Which video game, released in 2019, is a battle royale game developed by Respawn Entertainment?",
+        options: ["Apex Legends", "Fortnite", "PUBG", "Call of Duty: Warzone", "Rainbow Six Siege", "Overwatch"],
+        correctAnswer: "Apex Legends"
     },
     {
-        question: "Which animated film, released in 2011, follows the story of a young girl who dreams of becoming a musician?",
-        options: ["Encanto", "Luca", "Raya and the Last Dragon", "The Mitchells vs. the Machines", "Cruella", "Coco"],
-        correctAnswer: "Encanto"
-    }
+        question: "What year was the game 'Minecraft' released?",
+        options: ["2010", "2009", "2011", "2012", "2013", "2014"],
+        correctAnswer: "2011"
+    },
+    {
+        question: "Which game series is set in the world of Azeroth?",
+        options: ["World of Warcraft", "Final Fantasy", "Elder Scrolls", "Guild Wars", "Lineage", "Diablo"],
+        correctAnswer: "World of Warcraft"
+    },
+    {
+        question: "Who is the protagonist in 'The Legend of Zelda' series?",
+        options: ["Link", "Zelda", "Ganondorf", "Samus", "Mario", "Luigi"],
+        correctAnswer: "Link"
+    },
+    {
+        question: "What game introduced the character Pikachu?",
+        options: ["Pokémon Red and Blue", "Digimon World", "Dragon Quest Monsters", "Yu-Gi-Oh!", "Monster Rancher", "Final Fantasy Tactics"],
+        correctAnswer: "Pokémon Red and Blue"
+    },
+    {
+        question: "In which game do players build and manage a farm?",
+        options: ["Stardew Valley", "Animal Crossing", "Harvest Moon", "The Sims", "SimCity", "Terraria"],
+        correctAnswer: "Stardew Valley"
+    },
+    {
+        question: "Which game is set in the city of Los Santos?",
+        options: ["Grand Theft Auto V", "Watch Dogs", "Mafia III", "Saints Row IV", "Sleeping Dogs", "L.A. Noire"],
+        correctAnswer: "Grand Theft Auto V"
+    },
+    {
+        question: "What year was the first 'Halo' game released?",
+        options: ["2001", "2002", "2003", "2004", "2005", "2006"],
+        correctAnswer: "2001"
+    },
+    {
+        question: "In which game do players explore the post-apocalyptic world of Boston?",
+        options: ["Fallout 4", "The Last of Us", "Metro Exodus", "Days Gone", "Dying Light", "Far Cry 5"],
+        correctAnswer: "Fallout 4"
+    },
+    {
+        question: "Who is the main character in 'The Witcher' series?",
+        options: ["Geralt of Rivia", "Ezio Auditore", "Arthur Morgan", "Aloy", "Master Chief", "Nathan Drake"],
+        correctAnswer: "Geralt of Rivia"
+    },
+    {
+        question: "Which game is known for its battle royale mode?",
+        options: ["Fortnite", "Overwatch", "League of Legends", "Counter-Strike", "Apex Legends", "PUBG"],
+        correctAnswer: "Fortnite"
+    },
+    {
+        question: "Which game features an ink-based territory control mode?",
+        options: ["Splatoon", "Call of Duty", "Battlefield", "Destiny", "Overwatch", "Team Fortress 2"],
+        correctAnswer: "Splatoon"
+    },
+    {
+        question: "Which game series is set in the world of Tamriel?",
+        options: ["The Elder Scrolls", "Dark Souls", "Dragon Age", "The Witcher", "Mass Effect", "Fable"],
+        correctAnswer: "The Elder Scrolls"
+    },
+    {
+        question: "In which game do players hunt robotic creatures in a post-apocalyptic world?",
+        options: ["Horizon Zero Dawn", "The Last of Us", "Fallout 4", "Far Cry Primal", "Days Gone", "Metro Exodus"],
+        correctAnswer: "Horizon Zero Dawn"
+    },
+    {
+        question: "Which game features the character Arthur Morgan?",
+        options: ["Red Dead Redemption 2", "Grand Theft Auto V", "The Witcher 3", "Assassin's Creed Valhalla", "Far Cry 5", "Cyberpunk 2077"],
+        correctAnswer: "Red Dead Redemption 2"
+    },
+    {
+        question: "Which game series is known for its stealth-based gameplay and character Solid Snake?",
+        options: ["Metal Gear Solid", "Splinter Cell", "Hitman", "Deus Ex", "Thief", "Dishonored"],
+        correctAnswer: "Metal Gear Solid"
+    },
+    {
+        question: "Which game series features a large open-world setting and protagonist Geralt of Rivia?",
+        options: ["The Witcher", "Skyrim", "Dragon Age", "Dark Souls", "Mass Effect", "Fallout"],
+        correctAnswer: "The Witcher"
+    },
+    {
+        question: "Which game features a battle royale mode called 'Warzone'?",
+        options: ["Call of Duty: Modern Warfare", "Fortnite", "PUBG", "Apex Legends", "Battlefield V", "Overwatch"],
+        correctAnswer: "Call of Duty: Modern Warfare"
+    },
+    {
+        question: "What year was 'The Sims' first released?",
+        options: ["2000", "1999", "2001", "2002", "2003", "2004"],
+        correctAnswer: "2000"
+    },
+    {
+        question: "Which game series features characters named Ryu and Ken?",
+        options: ["Street Fighter", "Mortal Kombat", "Tekken", "Virtua Fighter", "King of Fighters", "Soulcalibur"],
+        correctAnswer: "Street Fighter"
+    },
+    {
+        question: "Who is the main character in the 'Metal Gear' series?",
+        options: ["Solid Snake", "Sam Fisher", "John Marston", "Niko Bellic", "Gordon Freeman", "Master Chief"],
+        correctAnswer: "Solid Snake"
+    },
+    {
+        question: "Which game is known for the phrase 'Finish Him!'?",
+        options: ["Mortal Kombat", "Street Fighter", "Tekken", "Virtua Fighter", "King of Fighters", "Soulcalibur"],
+        correctAnswer: "Mortal Kombat"
+    },
+    {
+        question: "In which game do players fight to be the last person standing on an island?",
+        options: ["Fortnite", "PUBG", "Apex Legends", "Call of Duty: Warzone", "H1Z1", "Realm Royale"],
+        correctAnswer: "Fortnite"
+    },
+    {
+        question: "Which game is known for its intense difficulty and 'You Died' screen?",
+        options: ["Dark Souls", "Bloodborne", "Demon's Souls", "Sekiro: Shadows Die Twice", "Elden Ring", "Nioh"],
+        correctAnswer: "Dark Souls"
+    },
+    {
+        question: "Which game series features a character named Ezio Auditore?",
+        options: ["Assassin's Creed", "Hitman", "Thief", "Dishonored", "Prince of Persia", "Tomb Raider"],
+        correctAnswer: "Assassin's Creed"
+    },
+    {
+        question: "Which game features an Italian plumber who must rescue Princess Peach?",
+        options: ["Super Mario Bros.", "Donkey Kong", "The Legend of Zelda", "Sonic the Hedgehog", "Pac-Man", "Mega Man"],
+        correctAnswer: "Super Mario Bros."
+    },
+    {
+        question: "Which game is set in the post-apocalyptic world of Pandora?",
+        options: ["Borderlands", "Fallout", "Mad Max", "Metro", "The Last of Us", "Dying Light"],
+        correctAnswer: "Borderlands"
+    },
+    {
+        question: "Which game series features the character Kratos?",
+        options: ["God of War", "Assassin's Creed", "Devil May Cry", "Bayonetta", "Dark Souls", "Dante's Inferno"],
+        correctAnswer: "God of War"
+    },
+    {
+        question: "In which game do players fight using characters from the Nintendo universe?",
+        options: ["Super Smash Bros.", "Mario Kart", "Splatoon", "Fire Emblem", "Donkey Kong", "Kirby"],
+        correctAnswer: "Super Smash Bros."
+    },
+    {
+        question: "Which game is known for its blocky graphics and allows players to build and explore their own worlds?",
+        options: ["Minecraft", "Terraria", "Roblox", "The Sims", "SimCity", "LittleBigPlanet"],
+        correctAnswer: "Minecraft"
+    },
+    {
+        question: "Which game series is set in the world of Tamriel?",
+        options: ["The Elder Scrolls", "Dark Souls", "Dragon Age", "The Witcher", "Mass Effect", "Fable"],
+        correctAnswer: "The Elder Scrolls"
+    },
+    {
+        question: "Which game features the character Nathan Drake?",
+        options: ["Uncharted", "Tomb Raider", "Indiana Jones", "Prince of Persia", "The Witcher", "Far Cry"],
+        correctAnswer: "Uncharted"
+    },
+    {
+        question: "Which game is set in the underwater city of Rapture?",
+        options: ["BioShock", "Subnautica", "Aquaria", "SOMA", "The Sinking City", "Underwater Adventure"],
+        correctAnswer: "BioShock"
+    },
+    {
+        question: "Which game features a hero named Link who must rescue Princess Zelda?",
+        options: ["The Legend of Zelda", "Final Fantasy", "Dragon Quest", "Fire Emblem", "Kingdom Hearts", "Chrono Trigger"],
+        correctAnswer: "The Legend of Zelda"
+    },
+    {
+        question: "Which game series features a large open-world setting and protagonist Geralt of Rivia?",
+        options: ["The Witcher", "Skyrim", "Dragon Age", "Dark Souls", "Mass Effect", "Fallout"],
+        correctAnswer: "The Witcher"
+    },
+    {
+        question: "Which game features a battle royale mode called 'Warzone'?",
+        options: ["Call of Duty: Modern Warfare", "Fortnite", "PUBG", "Apex Legends", "Battlefield V", "Overwatch"],
+        correctAnswer: "Call of Duty: Modern Warfare"
+    },
+    {
+        question: "Which game features the character Lara Croft exploring ancient tombs?",
+        options: ["Tomb Raider", "Uncharted", "Assassin's Creed", "Indiana Jones", "Prince of Persia", "The Witcher"],
+        correctAnswer: "Tomb Raider"
+    },
+    {
+        question: "Which game features the character Mega Man?",
+        options: ["Mega Man", "Metroid", "Castlevania", "Contra", "Sonic the Hedgehog", "Pac-Man"],
+        correctAnswer: "Mega Man"
+    },
+    {
+        question: "Which game features a civilization-building experience and is developed by Sid Meier?",
+        options: ["Civilization", "SimCity", "Age of Empires", "Rise of Nations", "Empire Earth", "Tropico"],
+        correctAnswer: "Civilization"
+    },
+    {
+        question: "Which company is known for its iPhones?",
+        options: ["Apple", "Samsung", "Google", "Sony", "LG", "Nokia"],
+        correctAnswer: "Apple"
+    },
+    {
+        question: "Which company produces the PlayStation gaming console?",
+        options: ["Sony", "Microsoft", "Nintendo", "Sega", "Atari", "Apple"],
+        correctAnswer: "Sony"
+    },
+    {
+        question: "Which brand is famous for its fried chicken?",
+        options: ["KFC", "Popeyes", "Chick-fil-A", "Church's Chicken", "Wingstop", "Zaxby's"],
+        correctAnswer: "KFC"
+    },
+    {
+        question: "Which company is known for its Windows operating system?",
+        options: ["Microsoft", "Apple", "Google", "IBM", "Intel", "AMD"],
+        correctAnswer: "Microsoft"
+    },
+    {
+        question: "Which brand is associated with the slogan 'Just Do It'?",
+        options: ["Nike", "Adidas", "Puma", "Reebok", "Under Armour", "New Balance"],
+        correctAnswer: "Nike"
+    },
+    {
+        question: "Which company is famous for its electric cars?",
+        options: ["Tesla", "BMW", "Toyota", "Ford", "Chevrolet", "Nissan"],
+        correctAnswer: "Tesla"
+    },
+    {
+        question: "Which company produces the iPad?",
+        options: ["Apple", "Samsung", "Microsoft", "Google", "Sony", "Amazon"],
+        correctAnswer: "Apple"
+    },
+    {
+        question: "Which brand is famous for its LEGO bricks?",
+        options: ["LEGO", "Mega Bloks", "K'NEX", "Playmobil", "Fisher-Price", "Hasbro"],
+        correctAnswer: "LEGO"
+    },
+    {
+        question: "Which company is known for its search engine?",
+        options: ["Google", "Bing", "Yahoo", "DuckDuckGo", "Baidu", "Ask"],
+        correctAnswer: "Google"
+    },
+    {
+        question: "Which brand is famous for its luxury cars?",
+        options: ["Mercedes-Benz", "BMW", "Audi", "Lexus", "Porsche", "Jaguar"],
+        correctAnswer: "Mercedes-Benz"
+    },
+    {
+        question: "Which company manufactures the Surface line of devices?",
+        options: ["Microsoft", "Apple", "Samsung", "Dell", "HP", "Lenovo"],
+        correctAnswer: "Microsoft"
+    },
+    {
+        question: "Which company is famous for its Kindle e-readers?",
+        options: ["Amazon", "Apple", "Barnes & Noble", "Kobo", "Sony", "Samsung"],
+        correctAnswer: "Amazon"
+    },
+    {
+        question: "Which brand is associated with the swoosh logo?",
+        options: ["Nike", "Adidas", "Puma", "Reebok", "Under Armour", "New Balance"],
+        correctAnswer: "Nike"
+    },
+    {
+        question: "Which company produces the Galaxy Tab series of tablets?",
+        options: ["Samsung", "Apple", "Microsoft", "Google", "Sony", "Amazon"],
+        correctAnswer: "Samsung"
+    },
+    {
+        question: "Which company is known for its YouTube platform?",
+        options: ["Google", "Facebook", "Amazon", "Microsoft", "Twitter", "Netflix"],
+        correctAnswer: "Google"
+    },
+    {
+        question: "Which company produces the Switch gaming console?",
+        options: ["Nintendo", "Sony", "Microsoft", "Sega", "Atari", "Apple"],
+        correctAnswer: "Nintendo"
+    },
 ];
