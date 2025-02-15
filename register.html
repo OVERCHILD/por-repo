@@ -157,6 +157,7 @@
     <audio id="success-sound" src="path/audiofiles/magic.mp3"></audio> <!-- เสียงเมื่อ Register สำเร็จ -->
     <audio id="logo-sound" src="path/audiofiles/lightswitch.mp3"></audio> <!-- เสียงคลิกที่โลโก้ -->
     <audio id="typing-sound" src="path/audiofiles/keyboardoneshort.mp3"></audio> <!-- เสียงพิมพ์ -->
+
 <script>
         let registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
         let typingSound; // ประกาศตัวแปรสำหรับเสียงพิมพ์
@@ -210,6 +211,18 @@
             const message = document.getElementById('message');
             const registerButton = document.getElementById('register-button');
             const successSound = document.getElementById('success-sound');
+
+            // ตรวจสอบว่า Username ซ้ำหรือไม่
+            const isUsernameTaken = registeredUsers.some(user => user.username === username);
+            if (isUsernameTaken) {
+                message.textContent = "Username is already taken!";
+                message.style.color = "red";
+                registerButton.classList.add('register-fail'); // เพิ่มคลาสแสงสีแดงเมื่อไม่สำเร็จ
+                setTimeout(() => {
+                    registerButton.classList.remove('register-fail'); // ลบคลาสแสงสีแดงหลังจากแสดงผล
+                }, 1500);
+                return;
+            }
 
             if (password !== confirmPassword) {
                 message.textContent = "Passwords do not match!";
