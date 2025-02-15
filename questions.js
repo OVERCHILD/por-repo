@@ -1521,7 +1521,7 @@ const questions = [
     },
     {
         question: "Which event in 2001 led to significant changes in global security and air travel?",
-        options: ["Terrorist attacks on September 11", "Launch of the iPhone", "Indian Ocean Tsunami", "Iraq War", "Global Financial Crisis"],
+        options: ["Terrorist attacks on September 11", "Launch of the iPhone", "Indian Ocean Tsunami", "Iraq War", "Enron Scandal", "Global Financial Crisis"],
         correctAnswer: "Terrorist attacks on September 11"
     },
     {
@@ -1566,7 +1566,7 @@ const questions = [
     },
     {
         question: "Which event in 2021 saw the United States withdraw its troops from Afghanistan after 20 years of war?",
-        options: ["Fall of Kabul", "Taliban Takeover", "Osama bin Laden's Death", "Iraq War", "Syrian Civil War"],
+        options: ["Fall of Kabul", "Taliban Takeover", "Osama bin Laden's Death", "Iraq War", "U.S. Troop Withdrawal from Afghanistan", "Syrian Civil War"],
         correctAnswer: "Fall of Kabul"
     },
     {
