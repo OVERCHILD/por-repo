@@ -1541,7 +1541,7 @@ const questions = [
     },
     {
         question: "Which event in 2011 led to the overthrow of a long-standing dictator in Libya?",
-        options: ["Arab Spring", "Egyptian Revolution", "Syrian Civil War", "Libyan Civil War", "Yemeni Crisis"],
+        options: ["Arab Spring", "Egyptian Revolution", "Syrian Civil War", "Libyan Civil War", "Tunisian Revolution", "Yemeni Crisis"],
         correctAnswer: "Libyan Civil War"
     },
     {
@@ -1561,7 +1561,7 @@ const questions = [
     },
     {
         question: "Which country left the European Union in 2020, an event known as Brexit?",
-        options: ["United Kingdom", "France", "Germany", "Italy", "Spain"],
+        options: ["United Kingdom", "France", "Germany", "Italy", "Greece", "Spain"],
         correctAnswer: "United Kingdom"
     },
     {
@@ -1571,7 +1571,7 @@ const questions = [
     },
     {
         question: "Which event in 2022 led to a significant energy crisis in Europe?",
-        options: ["Russian Invasion of Ukraine", "COVID-19 Pandemic", "Global Financial Crisis", "Brexit", "Arab Spring"],
+        options: ["Russian Invasion of Ukraine", "COVID-19 Pandemic", "Natural Gas Supply Disruption", "Global Financial Crisis", "Brexit", "Arab Spring"],
         correctAnswer: "Russian Invasion of Ukraine"
     },
     {
@@ -2245,19 +2245,9 @@ const questions = [
         correctAnswer: "The Dark Knight Rises"
     },
     {
-        question: "Which movie, released in 2015, features a young woman who discovers she has the ability to control water?",
-        options: ["Mad Max: Fury Road", "The Martian", "Star Wars: The Force Awakens", "Jurassic World", "The Revenant", "The Shape of Water"],
-        correctAnswer: "The Shape of Water"
-    },
-    {
         question: "Which animated film, released in 2018, follows the story of a young girl who dreams of becoming a musician?",
         options: ["Incredibles 2", "Ralph Breaks the Internet", "Hotel Transylvania 3: Summer Vacation", "The Grinch", "Smallfoot", "Coco"],
         correctAnswer: "Coco"
-    },
-    {
-        question: "Which movie, released in 2019, features a young woman who discovers she has the ability to control fire?",
-        options: ["Aladdin", "The Lion King", "Frozen II", "Jumanji: The Next Level", "Star Wars: The Rise of Skywalker", "Captain Marvel"],
-        correctAnswer: "Frozen II"
     },
     {
         question: "Which superhero movie, released in 2020, features a young hero who gains spider-like abilities?",
@@ -2293,11 +2283,6 @@ const questions = [
         question: "Which animated film, released in 2003, follows the story of a young girl who dreams of becoming a musician?",
         options: ["Encanto", "Luca", "Raya and the Last Dragon", "The Mitchells vs. the Machines", "Cruella", "Coco"],
         correctAnswer: "Encanto"
-    },
-    {
-        question: "Which movie, released in 2004, features a young woman who discovers she has the ability to control water?",
-        options: ["Frozen II", "The Lion King", "Frozen", "Jumanji: The Next Level", "Star Wars: The Rise of Skywalker", "The Shape of Water"],
-        correctAnswer: "The Shape of Water"
     },
     {
         question: "Which animated film, released in 2005, tells the story of a young boy who dreams of becoming a musician?",
