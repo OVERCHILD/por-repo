@@ -1576,7 +1576,7 @@ const questions = [
     },
     {
         question: "Which country hosted the 2022 FIFA World Cup, marking the first time it was held in the Middle East?",
-        options: ["Qatar", "United Arab Emirates", "Saudi Arabia", "Egypt", "Bahrain"],
+        options: ["Qatar", "United Arab Emirates", "Saudi Arabia", "Lebanon", "Egypt", "Bahrain"],
         correctAnswer: "Qatar"
     },
     {
@@ -2270,11 +2270,6 @@ const questions = [
         correctAnswer: "Encanto"
     },
     {
-        question: "Which movie, released in 2022, features a young woman who discovers she has the ability to control water?",
-        options: ["Top Gun: Maverick", "The Batman", "Dune", "Spider-Man: No Way Home", "Thor: Love and Thunder", "Aquaman and the Lost Kingdom"],
-        correctAnswer: "Aquaman and the Lost Kingdom"
-    },
-    {
         question: "Which animated film, released in 2023, follows the story of a young girl who dreams of becoming a ballerina?",
         options: ["Elemental", "The Super Mario Bros. Movie", "Puss in Boots: The Last Wish", "Spider-Man: Across the Spider-Verse", "The Boy and the Beast", "Ballerina"],
         correctAnswer: "Ballerina"
@@ -2318,11 +2313,6 @@ const questions = [
         question: "Which animated film, released in 2007, follows the story of a young girl who dreams of becoming a musician?",
         options: ["Encanto", "Luca", "Raya and the Last Dragon", "The Mitchells vs. the Machines", "Cruella", "Coco"],
         correctAnswer: "Coco"
-    },
-    {
-        question: "Which movie, released in 2008, features a young woman who discovers she has the ability to control water?",
-        options: ["Frozen II", "The Lion King", "Frozen", "Jumanji: The Next Level", "Star Wars: The Rise of Skywalker", "The Shape of Water"],
-        correctAnswer: "The Shape of Water"
     },
     {
         question: "Which animated film, released in 2009, tells the story of a young boy who dreams of becoming a musician?",
