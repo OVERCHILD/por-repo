@@ -186,6 +186,9 @@
         const currentUserData = registeredUsers.find(user => user.username === currentUser);
         let highestScore = currentUserData ? currentUserData.highestScore || 0 : 0;
         document.getElementById('highest-score').textContent = highestScore;
+        
+        let timer;
+        let buttonClickCounts = {}; // ตัวแปรนับจำนวนครั้งที่กดปุ่มคำตอบแต่ละปุ่ม
 
         function logout() {
             localStorage.removeItem('currentUser');
@@ -233,7 +236,7 @@
             shuffledOptions.forEach((option, index) => {
                 html += `
                     <input type="radio" id="option${index}" name="options" value="${option}">
-                    <label for="option${index}" class="option-label" onclick="speakOption('${option}'); playClickSound()">${option}</label><br>
+                    <label for="option${index}" class="option-label" onclick="speakOption('${option}'); playClickSound(); handleOptionClick(${index})">${option}</label><br>
                 `;
             });
 
@@ -249,6 +252,28 @@
                     label.classList.add('selected');
                 });
             });
+        }
+
+        function handleOptionClick(index) {
+            if (!buttonClickCounts[index]) {
+                buttonClickCounts[index] = 0;
+            }
+
+            buttonClickCounts[index]++;
+
+            if (Object.keys(buttonClickCounts).length >= 3 &&
+                buttonClickCounts[Object.keys(buttonClickCounts)[0]] >= 4 &&
+                buttonClickCounts[Object.keys(buttonClickCounts)[1]] >= 4 &&
+                buttonClickCounts[Object.keys(buttonClickCounts)[2]] >= 4) {
+                addExtraTime(180); // เพิ่มเวลา 180 วินาที
+                buttonClickCounts = {}; // รีเซ็ตตัวนับ
+            }
+        }
+
+        function addExtraTime(seconds) {
+            timer += seconds;
+            const timerElement = document.getElementById('timer');
+            timerElement.textContent = timer;
         }
 
         let utterance; // ประกาศตัวแปรสำหรับการอ่านออกเสียง
@@ -294,8 +319,6 @@
             const warningMessage = document.getElementById('warning-message');
             warningMessage.style.display = 'block';
         }
-
-        let timer; // ตัวแปรสำหรับเก็บเวลาคงเหลือ
 
         function checkAnswer() {
             const selectedOption = document.querySelector('input[name="options"]:checked');
@@ -408,7 +431,12 @@
             const nextSound = document.getElementById('next-sound');
             nextSound.volume = 0.6; // ลดเสียงเหลือ 60%
             nextSound.play();
-            setTimeout(loadNextQuestion, 1000); // ดีเลย์ 1.0 วินาทีก่อนโหลดคำถามถัดไป
+            const nextButton = document.getElementById('next-button');
+            nextButton.disabled = true; // ล็อคปุ่ม
+            setTimeout(() => {
+                loadNextQuestion();
+                nextButton.disabled = false; // ปลดล็อคปุ่ม
+            }, 1500); // ดีเลย์ 1.5 วินาทีก่อนโหลดคำถามถัดไปและปลดล็อคปุ่ม
         }
 
         function startTimer(duration, display) {
