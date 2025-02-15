@@ -132,19 +132,19 @@
             <form id="register-form">
                 <div class="form-group username">
                     <label for="username-register">Username:</label>
-                    <input type="text" id="username-register" name="username" required maxlength="16" oninput="playTypingSound()">
+                    <input type="text" id="username-register" name="username" required maxlength="16" oninput="playTypingSound(); validateInput(event)">
                 </div>
                 <div class="form-group password">
                     <label for="password-register">Password:</label>
                     <div class="password-container">
-                        <input type="password" id="password-register" name="password" required maxlength="16" oninput="playTypingSound()">
+                        <input type="password" id="password-register" name="password" required maxlength="16" oninput="playTypingSound(); validateInput(event)">
                         <span class="toggle-password" onclick="togglePassword('password-register')">👁️‍🗨️</span>
                     </div>
                 </div>
                 <div class="form-group confirm-password">
                     <label for="confirm-password-register">Confirm Password:</label>
                     <div class="password-container">
-                        <input type="password" id="confirm-password-register" name="confirm-password" required maxlength="16" oninput="playTypingSound()">
+                        <input type="password" id="confirm-password-register" name="confirm-password" required maxlength="16" oninput="playTypingSound(); validateInput(event)">
                         <span class="toggle-password" onclick="togglePassword('confirm-password-register')">👁️‍🗨️</span>
                     </div>
                 </div>
@@ -157,8 +157,7 @@
     <audio id="success-sound" src="path/audiofiles/magic.mp3"></audio> <!-- เสียงเมื่อ Register สำเร็จ -->
     <audio id="logo-sound" src="path/audiofiles/lightswitch.mp3"></audio> <!-- เสียงคลิกที่โลโก้ -->
     <audio id="typing-sound" src="path/audiofiles/keyboardoneshort.mp3"></audio> <!-- เสียงพิมพ์ -->
-
-    <script>
+<script>
         let registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
         let typingSound; // ประกาศตัวแปรสำหรับเสียงพิมพ์
 
@@ -196,6 +195,14 @@
             }
         }
 
+        function validateInput(event) {
+            const input = event.target;
+            const regex = /^[a-zA-Z0-9]*$/;
+            if (!regex.test(input.value)) {
+                input.value = input.value.replace(/[^a-zA-Z0-9]/g, '');
+            }
+        }
+
         function register() {
             const username = document.getElementById('username-register').value;
             const password = document.getElementById('password-register').value;
@@ -216,6 +223,16 @@
 
             if (!isValidPassword(password)) {
                 message.textContent = "Password must be between 8 and 16 characters!";
+                message.style.color = "red";
+                registerButton.classList.add('register-fail'); // เพิ่มคลาสแสงสีแดงเมื่อไม่สำเร็จ
+                setTimeout(() => {
+                    registerButton.classList.remove('register-fail'); // ลบคลาสแสงสีแดงหลังจากแสดงผล
+                }, 1500);
+                return;
+            }
+
+            if (!/^[a-zA-Z0-9]*$/.test(username) || !/^[a-zA-Z0-9]*$/.test(password)) {
+                message.textContent = "Username and Password can only contain English letters and numbers!";
                 message.style.color = "red";
                 registerButton.classList.add('register-fail'); // เพิ่มคลาสแสงสีแดงเมื่อไม่สำเร็จ
                 setTimeout(() => {
