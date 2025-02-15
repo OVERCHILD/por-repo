@@ -1581,7 +1581,7 @@ const questions = [
     },
     {
         question: "Which event in 2023 saw the first successful human landing on Mars?",
-        options: ["NASA's Artemis Mission", "China's Tianwen-1 Mission", "SpaceX's Starship Mission", "Blue Origin's New Shepard Mission", "Roscosmos's Luna Mission"],
+        options: ["NASA's Artemis Mission", "China's Tianwen-1 Mission", "SpaceX's Starship Mission", "Blue Origin's New Shepard Mission", "European Space Agency's ExoMars Mission", "Roscosmos's Luna Mission"],
         correctAnswer: "SpaceX's Starship Mission"
     },
     {
@@ -2580,3 +2580,4 @@ const questions = [
         correctAnswer: "Nintendo"
     },
 ];
+    
