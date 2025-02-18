@@ -705,11 +705,6 @@ const questions = [
         correctAnswer: "Watch"
     },
     {
-        question: "Which place is known for its cherry blossoms?",
-        options: ["Japan", "China", "France", "India", "Australia", "Brazil"],
-        correctAnswer: "Japan"
-    },
-    {
         question: "What do you need to rent a car?",
         options: ["Driver's license", "Library card", "Invitation card", "Bus ticket", "Credit card", "Camera"],
         correctAnswer: "Driver's license"
@@ -863,11 +858,6 @@ const questions = [
         question: "What do you use to click and select items on a computer screen?",
         options: ["Mouse", "Keyboard", "Monitor", "Printer", "Scanner", "File cabinet"],
         correctAnswer: "Mouse"
-    },
-    {
-        question: "Which country is known for sushi?",
-        options: ["Japan", "China", "Korea", "Thailand", "Vietnam", "Malaysia"],
-        correctAnswer: "Japan"
     },
     {
         question: "What is the main ingredient in pizza?",
@@ -1208,5 +1198,530 @@ const questions = [
         question: "Which animal is known for its large ears and excellent memory?",
         options: ["Elephant", "Lion", "Tiger", "Giraffe", "Zebra", "Bear"],
         correctAnswer: "Elephant"
+    },
+    {
+        question: "What do farmers use to plow fields?",
+        options: ["Tractor", "Bicycle", "Car", "Boat", "Plane", "Train"],
+        correctAnswer: "Tractor"
+    },
+    {
+        question: "What is the main purpose of a scarecrow?",
+        options: ["Scare birds away", "Water plants", "Harvest crops", "Milk cows", "Feed chickens", "Collect eggs"],
+        correctAnswer: "Scare birds away"
+    },
+    {
+        question: "Which tool is used to dig soil?",
+        options: ["Shovel", "Hammer", "Screwdriver", "Saw", "Wrench", "Plier"],
+        correctAnswer: "Shovel"
+    },
+    {
+        question: "What do chickens lay?",
+        options: ["Eggs", "Milk", "Wool", "Honey", "Bread", "Cheese"],
+        correctAnswer: "Eggs"
+    },
+    {
+        question: "Which animal is commonly used to pull a plow?",
+        options: ["Horse", "Dog", "Cat", "Rabbit", "Sheep", "Chicken"],
+        correctAnswer: "Horse"
+    },
+    {
+        question: "What is the main purpose of a barn?",
+        options: ["Store farm equipment", "Cook meals", "Wash clothes", "Bake bread", "Build furniture", "Paint houses"],
+        correctAnswer: "Store farm equipment"
+    },
+    {
+        question: "What do farmers use to water crops?",
+        options: ["Irrigation system", "Tractor", "Plow", "Scarecrow", "Barn", "Hammer"],
+        correctAnswer: "Irrigation system"
+    },
+    {
+        question: "Which grain is commonly grown on farms?",
+        options: ["Wheat", "Rice", "Barley", "Oats", "Corn", "Soybeans"],
+        correctAnswer: "Wheat"
+    },
+    {
+        question: "What do sheep produce?",
+        options: ["Wool", "Milk", "Eggs", "Honey", "Bread", "Cheese"],
+        correctAnswer: "Wool"
+    },
+    {
+        question: "Which machine is used to harvest crops?",
+        options: ["Combine harvester", "Tractor", "Irrigation system", "Plow", "Scarecrow", "Barn"],
+        correctAnswer: "Combine harvester"
+    },
+    {
+        question: "What do farmers use to plant seeds?",
+        options: ["Seed drill", "Tractor", "Plow", "Scarecrow", "Barn", "Hammer"],
+        correctAnswer: "Seed drill"
+    },
+    {
+        question: "What do beekeepers collect from bees?",
+        options: ["Honey", "Milk", "Wool", "Eggs", "Bread", "Cheese"],
+        correctAnswer: "Honey"
+    },
+    {
+        question: "What is the main purpose of a silo?",
+        options: ["Store grain", "Cook meals", "Wash clothes", "Bake bread", "Build furniture", "Paint houses"],
+        correctAnswer: "Store grain"
+    },
+    {
+        question: "Which fruit is commonly grown in orchards?",
+        options: ["Apple", "Tomato", "Cucumber", "Carrot", "Potato", "Onion"],
+        correctAnswer: "Apple"
+    },
+    {
+        question: "What do farmers use to protect crops from pests?",
+        options: ["Pesticides", "Fertilizers", "Water", "Sunlight", "Scarecrow", "Hammer"],
+        correctAnswer: "Pesticides"
+    },
+    {
+        question: "Which tool is used to cut grass?",
+        options: ["Lawnmower", "Hammer", "Screwdriver", "Saw", "Wrench", "Plier"],
+        correctAnswer: "Lawnmower"
+    },
+    {
+        question: "Which tool is used to collect hay?",
+        options: ["Pitchfork", "Hammer", "Screwdriver", "Saw", "Wrench", "Plier"],
+        correctAnswer: "Pitchfork"
+    },
+    {
+        question: "What is the main purpose of a greenhouse?",
+        options: ["Grow plants", "Cook meals", "Wash clothes", "Bake bread", "Build furniture", "Paint houses"],
+        correctAnswer: "Grow plants"
+    },
+    {
+        question: "Which animal is commonly raised for meat?",
+        options: ["Pig", "Dog", "Cat", "Rabbit", "Sheep", "Rat"],
+        correctAnswer: "Pig"
+    },
+    {
+        question: "What do farmers use to fertilize crops?",
+        options: ["Manure", "Water", "Sunlight", "Pesticides", "Scarecrow", "Hammer"],
+        correctAnswer: "Manure"
+    },
+    {
+        question: "Which dinosaur is known for its long neck?",
+        options: ["Brachiosaurus", "Tyrannosaurus Rex", "Triceratops", "Stegosaurus", "Velociraptor", "Pterodactyl"],
+        correctAnswer: "Brachiosaurus"
+    },
+    {
+        question: "What is the meaning of the name 'Tyrannosaurus Rex'?",
+        options: ["Tyrant Lizard King", "Swift Thief", "Three-Horned Face", "Roof Lizard", "Thunder Lizard", "Winged Lizard"],
+        correctAnswer: "Tyrant Lizard King"
+    },
+    {
+        question: "Which dinosaur had three horns on its face?",
+        options: ["Triceratops", "Tyrannosaurus Rex", "Brachiosaurus", "Stegosaurus", "Velociraptor", "Pterodactyl"],
+        correctAnswer: "Triceratops"
+    },
+    {
+        question: "What do we call scientists who study fossils?",
+        options: ["Paleontologists", "Geologists", "Archaeologists", "Biologists", "Astronomers", "Chemists"],
+        correctAnswer: "Paleontologists"
+    },
+    {
+        question: "Which dinosaur is known for its large, bony plates along its back?",
+        options: ["Stegosaurus", "Tyrannosaurus Rex", "Triceratops", "Brachiosaurus", "Velociraptor", "Pterodactyl"],
+        correctAnswer: "Stegosaurus"
+    },
+    {
+        question: "What type of diet did the Tyrannosaurus Rex have?",
+        options: ["Carnivorous", "Herbivorous", "Omnivorous", "Insectivorous", "Frugivorous", "Detritivorous"],
+        correctAnswer: "Carnivorous"
+    },
+    {
+        question: "Which dinosaur is known for its speed and agility?",
+        options: ["Velociraptor", "Tyrannosaurus Rex", "Triceratops", "Brachiosaurus", "Stegosaurus", "Pterodactyl"],
+        correctAnswer: "Velociraptor"
+    },
+    {
+        question: "Which dinosaur is known for being able to fly?",
+        options: ["Pterodactyl", "Tyrannosaurus Rex", "Triceratops", "Brachiosaurus", "Stegosaurus", "Velociraptor"],
+        correctAnswer: "Pterodactyl"
+    },
+    {
+        question: "What is a fossil?",
+        options: ["Remains of ancient organisms", "A type of rock", "A type of tree", "A type of animal", "A type of plant", "A type of fish"],
+        correctAnswer: "Remains of ancient organisms"
+    },
+    {
+        question: "Which period is known as the 'Age of Dinosaurs'?",
+        options: ["Mesozoic", "Cenozoic", "Paleozoic", "Proterozoic", "Archean", "Cambrian"],
+        correctAnswer: "Mesozoic"
+    },
+    {
+        question: "Which dinosaur is known for having a large, bony frill?",
+        options: ["Triceratops", "Tyrannosaurus Rex", "Brachiosaurus", "Stegosaurus", "Velociraptor", "Pterodactyl"],
+        correctAnswer: "Triceratops"
+    },
+    {
+        question: "What caused the extinction of the dinosaurs?",
+        options: ["Asteroid impact", "Volcanic eruptions", "Climate change", "Disease", "Predation", "Lack of food"],
+        correctAnswer: "Asteroid impact"
+    },
+    {
+        question: "Which dinosaur is known for its duck-billed appearance?",
+        options: ["Hadrosaurus", "Tyrannosaurus Rex", "Triceratops", "Brachiosaurus", "Stegosaurus", "Velociraptor"],
+        correctAnswer: "Hadrosaurus"
+    },
+    {
+        question: "What type of diet did herbivorous dinosaurs have?",
+        options: ["Plants", "Meat", "Insects", "Fish", "Eggs", "Nuts"],
+        correctAnswer: "Plants"
+    },
+    {
+        question: "Which dinosaur is known for its club-like tail?",
+        options: ["Ankylosaurus", "Tyrannosaurus Rex", "Triceratops", "Brachiosaurus", "Stegosaurus", "Velociraptor"],
+        correctAnswer: "Ankylosaurus"
+    },
+    {
+        question: "What does the term 'extinct' mean?",
+        options: ["No longer exists", "Still alive", "In danger of disappearing", "Rarely seen", "Widely found", "Recently discovered"],
+        correctAnswer: "No longer exists"
+    },
+    {
+        question: "Which dinosaur had a sail-like structure on its back?",
+        options: ["Spinosaurus", "Tyrannosaurus Rex", "Triceratops", "Brachiosaurus", "Stegosaurus", "Velociraptor"],
+        correctAnswer: "Spinosaurus"
+    },
+    {
+        question: "What are the preserved footprints of dinosaurs called?",
+        options: ["Trackways", "Fossils", "Sediments", "Imprints", "Marks", "Traces"],
+        correctAnswer: "Trackways"
+    },
+    {
+        question: "Which dinosaur is known for its long, whip-like tail?",
+        options: ["Diplodocus", "Tyrannosaurus Rex", "Triceratops", "Brachiosaurus", "Stegosaurus", "Velociraptor"],
+        correctAnswer: "Diplodocus"
+    },
+    {
+        question: "Which dinosaur is known for its horned crest and parrot-like beak?",
+        options: ["Psittacosaurus", "Tyrannosaurus Rex", "Triceratops", "Brachiosaurus", "Stegosaurus", "Velociraptor"],
+        correctAnswer: "Psittacosaurus"
+    },
+    {
+        question: "What type of environment did many dinosaurs live in?",
+        options: ["Forests", "Deserts", "Oceans", "Mountains", "Tundra", "Urban areas"],
+        correctAnswer: "Forests"
+    },
+    {
+        question: "Which city is the capital of Australia?",
+        options: ["Canberra", "Sydney", "Melbourne", "Brisbane", "Perth", "Adelaide"],
+        correctAnswer: "Canberra"
+    },
+    {
+        question: "Which city is known for its skyscrapers and busy streets?",
+        options: ["New York", "Los Angeles", "Chicago", "Miami", "San Francisco", "Houston"],
+        correctAnswer: "New York"
+    },
+    {
+        question: "Which city is the capital of Italy?",
+        options: ["Rome", "Paris", "Berlin", "Madrid", "Lisbon", "Vienna"],
+        correctAnswer: "Rome"
+    },
+    {
+        question: "Which city is famous for its coffee culture and opera house?",
+        options: ["Vienna", "Paris", "London", "Berlin", "Madrid", "Rome"],
+        correctAnswer: "Vienna"
+    },
+    {
+        question: "Which city is the capital of Canada?",
+        options: ["Ottawa", "Toronto", "Vancouver", "Montreal", "Calgary", "Edmonton"],
+        correctAnswer: "Ottawa"
+    },
+    {
+        question: "Which city is known for the Great Wall?",
+        options: ["Beijing", "Shanghai", "Hong Kong", "Tokyo", "Seoul", "Bangkok"],
+        correctAnswer: "Beijing"
+    },
+    {
+        question: "Which city is the capital of Brazil?",
+        options: ["Brasília", "Rio de Janeiro", "São Paulo", "Salvador", "Fortaleza", "Belo Horizonte"],
+        correctAnswer: "Brasília"
+    },
+    {
+        question: "Which city is famous for its pyramids?",
+        options: ["Cairo", "Paris", "Rome", "Athens", "London", "Berlin"],
+        correctAnswer: "Cairo"
+    },
+    {
+        question: "Which city is the capital of Russia?",
+        options: ["Moscow", "Saint Petersburg", "Novosibirsk", "Yekaterinburg", "Kazan", "Nizhny Novgorod"],
+        correctAnswer: "Moscow"
+    },
+    {
+        question: "Which city is the capital of the United Kingdom?",
+        options: ["London", "Paris", "Berlin", "Madrid", "Rome", "Lisbon"],
+        correctAnswer: "London"
+    },
+    {
+        question: "Which city is the capital of South Korea?",
+        options: ["Seoul", "Tokyo", "Beijing", "Shanghai", "Hong Kong", "Bangkok"],
+        correctAnswer: "Seoul"
+    },
+    {
+        question: "Which city is known for its samba and carnival?",
+        options: ["Rio de Janeiro", "São Paulo", "Brasília", "Salvador", "Fortaleza", "Belo Horizonte"],
+        correctAnswer: "Rio de Janeiro"
+    },
+    {
+        question: "Which city is the capital of Germany?",
+        options: ["Berlin", "Munich", "Hamburg", "Frankfurt", "Cologne", "Stuttgart"],
+        correctAnswer: "Berlin"
+    },
+    {
+        question: "Which city is famous for its cherry blossoms?",
+        options: ["Tokyo", "Kyoto", "Osaka", "Hiroshima", "Nagoya", "Fukuoka"],
+        correctAnswer: "Tokyo"
+    },
+    {
+        question: "Which city is the capital of Spain?",
+        options: ["Madrid", "Barcelona", "Valencia", "Seville", "Bilbao", "Malaga"],
+        correctAnswer: "Madrid"
+    },
+    {
+        question: "Which city is known for its opera house and harbor bridge?",
+        options: ["Sydney", "Melbourne", "Brisbane", "Perth", "Adelaide", "Canberra"],
+        correctAnswer: "Sydney"
+    },
+    {
+        question: "Which city is the capital of India?",
+        options: ["New Delhi", "Mumbai", "Kolkata", "Chennai", "Bangalore", "Hyderabad"],
+        correctAnswer: "New Delhi"
+    },
+    {
+        question: "Which city is famous for its medieval architecture and canals?",
+        options: ["Amsterdam", "Paris", "London", "Rome", "Venice", "Berlin"],
+        correctAnswer: "Amsterdam"
+    },
+    {
+        question: "Which city is the capital of Mexico?",
+        options: ["Mexico City", "Guadalajara", "Monterrey", "Puebla", "Tijuana", "Cancún"],
+        correctAnswer: "Mexico City"
+    },
+    {
+        question: "Which country is known for the Gyeongbokgung Palace?",
+        options: ["South Korea", "China", "Japan", "Vietnam", "Thailand", "Malaysia"],
+        correctAnswer: "South Korea"
+    },
+    {
+        question: "What is the main language spoken in China?",
+        options: ["Mandarin", "Cantonese", "Japanese", "Korean", "Vietnamese", "Thai"],
+        correctAnswer: "Mandarin"
+    },
+    {
+        question: "Which country is known for the Angkor Wat temple complex?",
+        options: ["Cambodia", "Vietnam", "Thailand", "Laos", "Malaysia", "Indonesia"],
+        correctAnswer: "Cambodia"
+    },
+    {
+        question: "Which country is famous for its Terracotta Army?",
+        options: ["China", "Japan", "South Korea", "Thailand", "Vietnam", "Malaysia"],
+        correctAnswer: "China"
+    },
+    {
+        question: "What is the capital of Vietnam?",
+        options: ["Hanoi", "Ho Chi Minh City", "Da Nang", "Hue", "Nha Trang", "Can Tho"],
+        correctAnswer: "Hanoi"
+    },
+    {
+        question: "Which country is known for its traditional tea ceremony?",
+        options: ["Japan", "China", "South Korea", "Thailand", "Vietnam", "Malaysia"],
+        correctAnswer: "Japan"
+    },
+    {
+        question: "What is the capital of Thailand?",
+        options: ["Bangkok", "Chiang Mai", "Phuket", "Pattaya", "Krabi", "Hua Hin"],
+        correctAnswer: "Bangkok"
+    },
+    {
+        question: "Which country is famous for its kimchi?",
+        options: ["South Korea", "China", "Japan", "Thailand", "Vietnam", "Malaysia"],
+        correctAnswer: "South Korea"
+    },
+    {
+        question: "Which country is known for its floating markets?",
+        options: ["Thailand", "Vietnam", "China", "South Korea", "Japan", "Malaysia"],
+        correctAnswer: "Thailand"
+    },
+    {
+        question: "What is the capital of Malaysia?",
+        options: ["Kuala Lumpur", "Penang", "Johor Bahru", "Kuching", "Kota Kinabalu", "Melaka"],
+        correctAnswer: "Kuala Lumpur"
+    },
+    {
+        question: "Which country is famous for its sushi?",
+        options: ["Japan", "China", "South Korea", "Thailand", "Vietnam", "Malaysia"],
+        correctAnswer: "Japan"
+    },
+    {
+        question: "Which country is known for its dragon boat races?",
+        options: ["China", "Japan", "South Korea", "Thailand", "Vietnam", "Malaysia"],
+        correctAnswer: "China"
+    },
+    {
+        question: "What is the capital of the Philippines?",
+        options: ["Manila", "Cebu", "Davao", "Quezon City", "Makati", "Pasig"],
+        correctAnswer: "Manila"
+    },
+    {
+        question: "Which country is famous for its pho?",
+        options: ["Vietnam", "Thailand", "China", "Japan", "South Korea", "Malaysia"],
+        correctAnswer: "Vietnam"
+    },
+    {
+        question: "Which country is known for its Geisha culture?",
+        options: ["Japan", "China", "South Korea", "Thailand", "Vietnam", "Malaysia"],
+        correctAnswer: "Japan"
+    },
+    {
+        question: "Which country is famous for its floating markets?",
+        options: ["Thailand", "Vietnam", "China", "South Korea", "Japan", "Malaysia"],
+        correctAnswer: "Thailand"
+    },
+    {
+        question: "What is the capital of Malaysia?",
+        options: ["Kuala Lumpur", "Penang", "Johor Bahru", "Kuching", "Kota Kinabalu", "Melaka"],
+        correctAnswer: "Kuala Lumpur"
+    },
+    {
+        question: "What is the capital of Singapore?",
+        options: ["Singapore", "Kuala Lumpur", "Bangkok", "Jakarta", "Manila", "Hanoi"],
+        correctAnswer: "Singapore"
+    },
+    {
+        question: "What is the capital of Cambodia?",
+        options: ["Phnom Penh", "Siem Reap", "Sihanoukville", "Battambang", "Kampot", "Kep"],
+        correctAnswer: "Phnom Penh"
+    },
+    {
+        question: "Which country is famous for its street food and night markets?",
+        options: ["Thailand", "Vietnam", "Malaysia", "Indonesia", "Singapore", "Philippines"],
+        correctAnswer: "Thailand"
+    },
+    {
+        question: "Which country is known for its rice terraces and volcanoes?",
+        options: ["Philippines", "Thailand", "Vietnam", "Malaysia", "Indonesia", "Singapore"],
+        correctAnswer: "Philippines"
+    },
+    {
+        question: "What is the main language spoken in Myanmar?",
+        options: ["Burmese", "Thai", "Vietnamese", "Khmer", "Malay", "Mandarin"],
+        correctAnswer: "Burmese"
+    },
+    {
+        question: "Which country is known for its ancient city of Bagan?",
+        options: ["Myanmar", "Cambodia", "Thailand", "Vietnam", "Laos", "Malaysia"],
+        correctAnswer: "Myanmar"
+    },
+    {
+        question: "Which country is famous for its diverse wildlife and orangutans?",
+        options: ["Malaysia", "Indonesia", "Thailand", "Vietnam", "Philippines", "Cambodia"],
+        correctAnswer: "Malaysia"
+    },
+    {
+        question: "Which colors are on the flag of the United States?",
+        options: ["Red, White, Blue", "Red, White, Green", "Blue, Yellow, White", "Green, White, Red", "Yellow, Blue, Red", "Black, Yellow, Red"],
+        correctAnswer: "Red, White, Blue"
+    },
+    {
+        question: "Which shape is in the center of the flag of Japan?",
+        options: ["Circle", "Square", "Star", "Triangle", "Cross", "Diamond"],
+        correctAnswer: "Circle"
+    },
+    {
+        question: "Which colors are on the flag of Brazil?",
+        options: ["Green, Yellow, Blue", "Red, White, Blue", "Green, White, Red", "Blue, Yellow, Red", "Red, Yellow, White", "Black, Yellow, Red"],
+        correctAnswer: "Green, Yellow, Blue"
+    },
+    {
+        question: "What is the main color of the flag of China?",
+        options: ["Red", "Blue", "Green", "Yellow", "Black", "White"],
+        correctAnswer: "Red"
+    },
+    {
+        question: "Which symbol is on the flag of South Korea?",
+        options: ["Yin and Yang", "Star", "Circle", "Cross", "Triangle", "Square"],
+        correctAnswer: "Yin and Yang"
+    },
+    {
+        question: "Which colors are on the flag of Italy?",
+        options: ["Green, White, Red", "Red, White, Blue", "Blue, Yellow, White", "Green, Yellow, Red", "Red, Yellow, White", "Black, Yellow, Red"],
+        correctAnswer: "Green, White, Red"
+    },
+    {
+        question: "Which animal appears on the flag of Sri Lanka?",
+        options: ["Lion", "Eagle", "Kangaroo", "Dragon", "Tiger", "Elephant"],
+        correctAnswer: "Lion"
+    },
+    {
+        question: "Which symbol is on the flag of Turkey?",
+        options: ["Crescent and Star", "Cross", "Circle", "Triangle", "Square", "Diamond"],
+        correctAnswer: "Crescent and Star"
+    },
+    {
+        question: "Which colors are on the flag of the United Kingdom?",
+        options: ["Red, White, Blue", "Red, White, Green", "Blue, Yellow, White", "Green, White, Red", "Yellow, Blue, Red", "Black, Yellow, Red"],
+        correctAnswer: "Red, White, Blue"
+    },
+    {
+        question: "Which animal appears on the flag of Mexico?",
+        options: ["Eagle", "Lion", "Kangaroo", "Dragon", "Tiger", "Elephant"],
+        correctAnswer: "Eagle"
+    },
+    {
+        question: "Which symbol is on the flag of Israel?",
+        options: ["Star of David", "Cross", "Circle", "Triangle", "Square", "Diamond"],
+        correctAnswer: "Star of David"
+    },
+    {
+        question: "Which colors are on the flag of Russia?",
+        options: ["White, Blue, Red", "Red, White, Blue", "Blue, Yellow, White", "Green, White, Red", "Yellow, Blue, Red", "Black, Yellow, Red"],
+        correctAnswer: "White, Blue, Red"
+    },
+    {
+        question: "Which animal appears on the flag of Bhutan?",
+        options: ["Dragon", "Eagle", "Kangaroo", "Lion", "Tiger", "Elephant"],
+        correctAnswer: "Dragon"
+    },
+    {
+        question: "What is the main color of the flag of Greece?",
+        options: ["Blue", "Green", "Yellow", "Red", "Black", "purple"],
+        correctAnswer: "Blue"
+    },
+    {
+        question: "Which symbol is on the flag of Switzerland?",
+        options: ["Cross", "Star", "Circle", "Triangle", "Square", "Diamond"],
+        correctAnswer: "Cross"
+    },
+    {
+        question: "Which colors are on the flag of Spain?",
+        options: ["Red, Yellow", "Red, White, Blue", "Blue, Yellow, White", "Green, White, Red", "Yellow, Blue, Red", "Black, Yellow, Red"],
+        correctAnswer: "Red, Yellow"
+    },
+    {
+        question: "Which animal appears on the flag of Albania?",
+        options: ["Eagle", "Lion", "Kangaroo", "Dragon", "Tiger", "Elephant"],
+        correctAnswer: "Eagle"
+    },
+    {
+        question: "What is the main color of the flag of Argentina?",
+        options: ["Blue", "Green", "Yellow", "Red", "Black", "Orange"],
+        correctAnswer: "Blue"
+    },
+    {
+        question: "Which symbol is on the flag of Lebanon?",
+        options: ["Cedar Tree", "Cross", "Star", "Circle", "Triangle", "Square"],
+        correctAnswer: "Cedar Tree"
+    },
+    {
+        question: "Which colors are on the flag of Nigeria?",
+        options: ["Green, White", "Red, White, Blue", "Blue, Yellow, White", "Green, Yellow, Red", "Yellow, Blue, Red", "Black, Yellow, Red"],
+        correctAnswer: "Green, White"
+    },
+    {
+        question: "Which animal appears on the flag of Zimbabwe?",
+        options: ["Bird", "Lion", "Kangaroo", "Dragon", "Tiger", "Elephant"],
+        correctAnswer: "Bird"
     }
 ];
