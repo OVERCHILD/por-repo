@@ -145,11 +145,6 @@ const questions = [
         correctAnswer: "Eggs"
     },
     {
-        question: "What is the opposite of 'yes'?",
-        options: ["No", "Maybe", "Okay", "Sure", "Yes", "Not"],
-        correctAnswer: "No"
-    },
-    {
         question: "What time of day is it usually dark outside?",
         options: ["Night", "Morning", "Afternoon", "Evening", "Noon", "Dawn"],
         correctAnswer: "Night"
@@ -445,11 +440,6 @@ const questions = [
         correctAnswer: "Nectar"
     },
     {
-        question: "What is the opposite of 'day'?",
-        options: ["Night", "Morning", "Evening", "Afternoon", "Dawn", "Dusk"],
-        correctAnswer: "Night"
-    },
-    {
         question: "What do you use to find your way in the forest?",
         options: ["Map", "Knife", "Book", "Pen", "Cup", "Spoon"],
         correctAnswer: "Map"
@@ -738,11 +728,6 @@ const questions = [
         question: "What do you use to play catch with a friend?",
         options: ["Ball", "Frisbee", "Stick", "Rock", "Leaf", "Flower"],
         correctAnswer: "Ball"
-    },
-    {
-        question: "What is the opposite of 'inside'?",
-        options: ["Outside", "Under", "Over", "Near", "Far", "Behind"],
-        correctAnswer: "Outside"
     },
     {
         question: "What do you need to ride a bike safely?",
