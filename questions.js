@@ -1723,5 +1723,141 @@ const questions = [
         question: "Which animal appears on the flag of Zimbabwe?",
         options: ["Bird", "Lion", "Kangaroo", "Dragon", "Tiger", "Elephant"],
         correctAnswer: "Bird"
+
+    },
+    {
+        question: "Which professional wrestler is known by the ring name 'The Rock'?",
+        options: ["Dwayne Johnson", "John Cena", "Mark Calaway", "Steve Austin", "Paul Levesque", "Leati Anoaʻi"],
+        correctAnswer: "Dwayne Johnson"
+    },
+    {
+        question: "In professional wrestling, what is the goal of a match?",
+        options: ["Pin the opponent", "Score a touchdown", "Hit a home run", "Make a basket", "Hit a hole-in-one", "Serve an ace"],
+        correctAnswer: "Pin the opponent"
+    },
+    {
+        question: "Which professional wrestler is known by the ring name 'The Nature Boy'?",
+        options: ["Ric Flair", "Hulk Hogan", "John Cena", "Stone Cold Steve Austin", "The Undertaker", "Triple H"],
+        correctAnswer: "Ric Flair"
+    },
+    {
+        question: "What does WWE stand for in professional wrestling?",
+        options: ["World Wrestling Entertainment", "Worldwide Wrestling Events", "Wrestling World Entertainment", "World Wide Events", "Wrestling World Events", "World Wrestling Events"],
+        correctAnswer: "World Wrestling Entertainment"
+    },
+    {
+        question: "Which professional wrestler is known by the ring name 'The Deadman'?",
+        options: ["The Undertaker", "Hulk Hogan", "John Cena", "Stone Cold Steve Austin", "The Rock", "Triple H"],
+        correctAnswer: "The Undertaker"
+    },
+    {
+        question: "In soccer, which player is known for scoring goals?",
+        options: ["Striker", "Defender", "Midfielder", "Goalkeeper", "Winger", "Coach"],
+        correctAnswer: "Striker"
+    },
+    {
+        question: "In soccer, what is the object used to play the game?",
+        options: ["Ball", "Puck", "Bat", "Racket", "Net", "Club"],
+        correctAnswer: "Ball"
+    },
+    {
+        question: "In soccer, what is the primary objective of the game?",
+        options: ["Score goals", "Hit home runs", "Make baskets", "Score touchdowns", "Serve aces", "Hit holes-in-one"],
+        correctAnswer: "Score goals"
+    },
+    {
+        question: "In soccer, which position is responsible for defending the goal?",
+        options: ["Goalkeeper", "Defender", "Midfielder", "Striker", "Winger", "Coach"],
+        correctAnswer: "Goalkeeper"
+    },
+    {
+        question: "In basketball, which player is known for scoring points?",
+        options: ["Shooter", "Pitcher", "Goalkeeper", "Forward", "Quarterback", "Catcher"],
+        correctAnswer: "Shooter"
+    },
+    {
+        question: "In tennis, what is the object used to hit the ball?",
+        options: ["Racket", "Club", "Bat", "Stick", "Paddle", "Net"],
+        correctAnswer: "Racket"
+    },
+    {
+        question: "Which player has won the most Grand Slam titles in men's singles tennis?",
+        options: ["Roger Federer", "Rafael Nadal", "Novak Djokovic", "Pete Sampras", "Bjorn Borg", "Andre Agassi"],
+        correctAnswer: "Roger Federer"
+    },
+    {
+        question: "What does F1 stand for in motorsport?",
+        options: ["Formula 1", "Fast 1", "First 1", "Future 1", "Furious 1", "Fuel 1"],
+        correctAnswer: "Formula 1"
+    },
+    {
+        question: "Which team has won the most F1 Constructors' Championships?",
+        options: ["Ferrari", "Mercedes", "Red Bull", "McLaren", "Williams", "Renault"],
+        correctAnswer: "Ferrari"
+    },
+    {
+        question: "In boxing, which weight class is known as the heaviest?",
+        options: ["Heavyweight", "Lightweight", "Middleweight", "Flyweight", "Featherweight", "Bantamweight"],
+        correctAnswer: "Heavyweight"
+    },
+    {
+        question: "Which boxer is known as 'The Greatest'?",
+        options: ["Muhammad Ali", "Mike Tyson", "Floyd Mayweather", "Manny Pacquiao", "Joe Frazier", "George Foreman"],
+        correctAnswer: "Muhammad Ali"
+    },
+    {
+        question: "Which country is known for the martial art of Muay Thai?",
+        options: ["Thailand", "Japan", "China", "Brazil", "Korea", "Philippines"],
+        correctAnswer: "Thailand"
+    },
+    {
+        question: "Which mythical sea monster is known for sinking ships?",
+        options: ["Kraken", "Phoenix", "Dragon", "Unicorn", "Griffin", "Chimera"],
+        correctAnswer: "Kraken"
+    },
+    {
+        question: "Which mythical creature has the heads of a lion, a goat, and a serpent?",
+        options: ["Chimera", "Phoenix", "Dragon", "Unicorn", "Griffin", "Kraken"],
+        correctAnswer: "Chimera"
+    },
+    {
+        question: "Which mythical creature is known for turning people to stone with its gaze?",
+        options: ["Medusa", "Dragon", "Phoenix", "Unicorn", "Griffin", "Kraken"],
+        correctAnswer: "Medusa"
+    },
+    {
+        question: "Which mythical horse has wings and is known for flying?",
+        options: ["Pegasus", "Dragon", "Phoenix", "Unicorn", "Griffin", "Kraken"],
+        correctAnswer: "Pegasus"
+    },
+    {
+        question: "Which mythical creature is a giant wolf in Norse mythology?",
+        options: ["Fenrir", "Dragon", "Phoenix", "Unicorn", "Griffin", "Kraken"],
+        correctAnswer: "Fenrir"
+    },
+    {
+        question: "Which mythical creature is a large serpent or dragon in Greek mythology?",
+        options: ["Hydra", "Phoenix", "Dragon", "Unicorn", "Griffin", "Kraken"],
+        correctAnswer: "Hydra"
+    },
+    {
+        question: "Which mythical creature is a half-human, half-horse being?",
+        options: ["Centaur", "Phoenix", "Dragon", "Unicorn", "Griffin", "Kraken"],
+        correctAnswer: "Centaur"
+    },
+    {
+        question: "Which mythical creature is known for guarding treasure in Norse mythology?",
+        options: ["Fafnir", "Dragon", "Phoenix", "Unicorn", "Griffin", "Kraken"],
+        correctAnswer: "Fafnir"
+    },
+    {
+        question: "Which mythical creature is a giant bird in Native American mythology?",
+        options: ["Thunderbird", "Phoenix", "Dragon", "Unicorn", "Griffin", "Kraken"],
+        correctAnswer: "Thunderbird"
+    },
+    {
+        question: "Which mythical creature is a giant humanoid in Greek mythology?",
+        options: ["Cyclops", "Phoenix", "Dragon", "Unicorn", "Griffin", "Kraken"],
+        correctAnswer: "Cyclops"
     }
 ];
